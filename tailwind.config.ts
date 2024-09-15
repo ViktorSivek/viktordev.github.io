@@ -18,10 +18,38 @@ const config: Config = {
       center: true,
       padding: '2rem',
       screens: {
-        '2xl': '1400px',
+        '2xl': '1400px', // Default for extra-large screens
+        '2k': '2560px', // 2560x1440 – 2K WQHD resolution
+        '4k': '3840px', // 3840x2160 – 4K UHD resolution
+        fullhd: '1920px', // 1920x1080 – Full HD resolution
+        macbook14: '3456px', // MacBook Pro 14" (3456x2234 Retina)
+        macbook16: '3072px', // MacBook Pro 16" (3072x1920 Retina)
       },
     },
     extend: {
+      screens: {
+        '2xl': '1400px', // Default for extra-large screens
+        '2k': '2560px', // 2560x1440 – 2K WQHD resolution
+        '4k': '3840px', // 3840x2160 – 4K UHD resolution
+        fullhd: '1920px', // 1920x1080 – Full HD resolution
+        macbook14: '3456px', // MacBook Pro 14" (3456x2234 Retina)
+        macbook16: '3072px', // MacBook Pro 16" (3072x1920 Retina)
+      },
+      fontSize: {
+        base: ['16px', { lineHeight: '1.5' }],
+        lg: ['18px', { lineHeight: '1.5' }],
+        xl: ['20px', { lineHeight: '1.5' }],
+        '2xl': ['24px', { lineHeight: '1.5' }],
+        '3xl': ['30px', { lineHeight: '1.5' }],
+        '4xl': ['36px', { lineHeight: '1.2' }],
+        '5xl': ['48px', { lineHeight: '1.2' }],
+        '6xl': ['60px', { lineHeight: '1.2' }],
+        '7xl': ['72px', { lineHeight: '1.2' }],
+      },
+      spacing: {
+        '128': '32rem', // Larger spacing for large screens
+        '144': '36rem',
+      },
       colors: {
         black: {
           DEFAULT: '#000',
