@@ -50,6 +50,10 @@ const config: Config = {
         '128': '32rem', // Larger spacing for large screens
         '144': '36rem',
       },
+      fontFamily: {
+        poppins: ['Poppins', 'sans-serif'],
+        'roboto-mono': ['Roboto Mono', 'monospace'],
+      },
       colors: {
         black: {
           DEFAULT: '#000',

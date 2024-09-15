@@ -1,10 +1,17 @@
 import type { Metadata } from 'next'
-import { Inter } from 'next/font/google'
-
+import { Poppins, Roboto_Mono } from 'next/font/google'
 import './globals.css'
 import { ThemeProvider } from './provider'
 
-const inter = Inter({ subsets: ['latin'] })
+const poppins = Poppins({
+  subsets: ['latin'],
+  weight: ['700'], // Poppins Bold
+})
+
+const robotoMono = Roboto_Mono({
+  subsets: ['latin'],
+  weight: ['400'], // Roboto Mono Regular
+})
 
 export const metadata: Metadata = {
   title: 'ViktorDev Portfolio',
@@ -18,10 +25,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
-      {/* <head>
-        <link rel="icon" href="/jsm-logo.png" sizes="any" />
-      </head> */}
-      <body className={inter.className}>
+      <body className={`${poppins.className} ${robotoMono.className}`}>
         <ThemeProvider
           attribute="class"
           defaultTheme="dark"

@@ -6,7 +6,7 @@ import { FloatingNav } from '@/components/ui/FloatingNavbar'
 export default function Home() {
   return (
     <main className="relative bg-black-100 flex justify-center items-center flex-col overflow-hidden mx-auto">
-      <div className="container max-w-7xl w-full mx-auto px-5 sm:px-10">
+      <div className="container w-full mx-auto px-5 sm:px-10">
         <FloatingNav navItems={navItems} />
         <Hero />
         <Grid />
