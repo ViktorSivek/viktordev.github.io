@@ -71,11 +71,7 @@ const config: Config = {
         },
         purple: '#CBACF9',
       },
-      borderRadius: {
-        lg: 'var(--radius)',
-        md: 'calc(var(--radius) - 2px)',
-        sm: 'calc(var(--radius) - 4px)',
-      },
+
       keyframes: {
         spotlight: {
           '0%': {

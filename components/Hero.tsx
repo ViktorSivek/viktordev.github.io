@@ -30,29 +30,30 @@ const Hero = () => {
         />
       </div>
 
-      {/* Main Content with Text on Left and Image/Animation on Right */}
-      <div className="relative z-10 container mx-auto max-w-[89vw] lg:max-w-7xl flex flex-col lg:flex-row items-center justify-between lg:space-x-28">
+      {/* Main Content */}
+      <div className="relative z-10 container mx-auto max-w-[95vw] lg:max-w-[100rem] 2k:max-w-[110rem] 4k:max-w-[120rem] flex flex-col lg:flex-row items-center justify-between lg:space-x-48">
         {/* Left Side: Text and Buttons */}
-        <div className="w-full lg:w-[45%] flex flex-col items-start justify-center text-left">
+        <div className="w-full lg:w-[40%] flex flex-col items-start justify-center text-left">
           {/* Main Heading: Hello, my name is Viktor */}
-          <h1 className="font-poppins text-left text-[36px] md:text-5xl lg:text-6xl 2k:text-7xl 4k:text-8xl">
-            Hello, my name is{' '}
-            <span className="font-bold text-purple-500 text-[42px] md:text-[56px] lg:text-[64px] 2k:text-[72px] 4k:text-[80px]">
+          <h1 className=" text-left">
+            <span className="font-roboto-mono text-[16px] md:text-2xl lg:text-4xl 2k:text-3xl 4k:text-5xl font-regular">
+              Hi, I am
+            </span>
+
+            <span className="font-roboto-mono font-bold text-purple text-[56px] md:text-[64px] lg:text-[90px] 2k:text-[100px] 4k:text-[120px] ml-8 font-regular">
               Viktor
             </span>
-            .
           </h1>
 
-          {/* Animated Phrase with Roboto Mono using TextGenerateEffect */}
           <TextGenerateEffect
             words="Transforming concepts into seamless user experiences."
-            className="font-roboto-mono text-left text-[24px] md:text-2xl lg:text-3xl 2k:text-4xl 4k:text-5xl font-regular mt-4"
+            className="font-roboto-mono text-left text-[24px] md:text-2xl lg:text-3xl 2k:text-4xl 4k:text-5xl font-regular"
           />
 
-          {/* Buttons */}
-          <div className="flex gap-4 mt-6">
+          {/* Buttons: Stacked on Mobile, Next to Each Other on Desktop */}
+          <div className="flex flex-col lg:flex-row gap-4 items-center lg:items-start">
             {/* Show My Work Button */}
-            <a href="#work">
+            <a href="#work" className="w-full lg:w-auto sm:w-64">
               <MagicButton
                 title="Show my work"
                 icon={<FaLocationArrow />}
@@ -60,7 +61,7 @@ const Hero = () => {
               />
             </a>
             {/* Contact Me Button */}
-            <a href="#contact">
+            <a href="#contact" className="w-full lg:w-auto sm:w-64">
               <MagicButton
                 title="Contact Me"
                 icon={<FaEnvelope />}
@@ -70,11 +71,18 @@ const Hero = () => {
           </div>
         </div>
 
-        {/* Right Side: Placeholder for Future Picture/Animation */}
-        <div className="w-full lg:w-[45%] flex justify-center lg:justify-end mt-10 lg:mt-0">
+        {/* Right Side: Image for Desktop */}
+        <div className="hidden lg:flex w-full lg:w-[40%] justify-center lg:justify-end mt-10 lg:mt-0">
           {/* Placeholder square for future image/animation */}
-          <div className="w-[300px] h-[300px] bg-gray-300 lg:w-[400px] lg:h-[400px]">
+          <div className="w-[300px] h-[300px] lg:w-[400px] lg:h-[400px] 2k:w-[500px] 2k:h-[500px] 4k:w-[600px] 4k:h-[600px] bg-gray-300">
             {/* Replace this div with the future image/animation component */}
+          </div>
+        </div>
+
+        {/* Image for Mobile (scroll down to see) */}
+        <div className="lg:hidden mt-32">
+          <div className="w-[300px] h-[300px] mx-auto bg-gray-300">
+            {/* Replace with the future image/animation component */}
           </div>
         </div>
       </div>
