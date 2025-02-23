@@ -1,11 +1,14 @@
+'use client'
 import { FaLocationArrow, FaEnvelope } from 'react-icons/fa6'
+import { useScrollAnimation } from './features/hero/useScrollAnimation'
 import MagicButton from './ui/MagicButton'
 import { Spotlight } from './ui/Spotlight'
 import { TextGenerateEffect } from './ui/TextGenerateEffect'
 
 const Hero = () => {
+  useScrollAnimation()
   return (
-    <div className="relative min-h-screen flex items-center justify-center pb-20 pt-36">
+    <div className="relative h-screen flex items-center justify-center">
       {/* Spotlight effects */}
       <div className="absolute inset-0">
         <Spotlight
@@ -31,7 +34,7 @@ const Hero = () => {
       </div>
 
       {/* Main Content */}
-      <div className="relative z-10 container mx-auto max-w-[95vw] lg:max-w-[100rem] 2k:max-w-[110rem] 4k:max-w-[120rem] flex flex-col lg:flex-row items-center lg:items-start justify-center lg:justify-between min-h-screen">
+      <div className="relative z-10 container mx-auto max-w-[95vw] lg:max-w-[100rem] 2k:max-w-[110rem] 4k:max-w-[120rem] flex flex-col lg:flex-row items-center justify-center lg:justify-between h-full">
         {/* Left Side: Text and Buttons */}
         <div className="w-full lg:w-1/2 flex flex-col items-center lg:items-start justify-center text-center lg:text-left">
           {/* Main Heading: Hello, my name is Viktor */}
@@ -51,23 +54,17 @@ const Hero = () => {
           />
 
           {/* Buttons: Stacked on Mobile, Next to Each Other on Desktop */}
-          <div className="flex flex-col sm:flex-row gap-4 items-center justify-center lg:justify-start w-full">
-            {/* Show My Work Button */}
-            <div className="w-full sm:w-64">
-              <MagicButton
-                title="Show my work"
-                icon={<FaLocationArrow />}
-                position="right"
-              />
-            </div>
-            {/* Contact Me Button */}
-            <div className="w-full sm:w-64">
-              <MagicButton
-                title="Contact Me"
-                icon={<FaEnvelope />}
-                position="right"
-              />
-            </div>
+          <div className="flex flex-col lg:flex-row gap-4 w-full max-w-xl">
+            <MagicButton
+              title="Show my work"
+              icon={<FaLocationArrow />}
+              position="right"
+            />
+            <MagicButton
+              title="Contact Me"
+              icon={<FaEnvelope />}
+              position="right"
+            />
           </div>
         </div>
 
@@ -77,7 +74,7 @@ const Hero = () => {
         </div>
 
         {/* Mobile Image (appears on scroll) */}
-        <div className="lg:hidden w-full flex justify-center mt-32">
+        <div className="lg:hidden w-full flex justify-center mt-32 opacity-0 transition-opacity duration-500" id="mobile-square">
           <div className="w-[300px] h-[300px] bg-white rounded-lg shadow-lg"></div>
         </div>
       </div>
