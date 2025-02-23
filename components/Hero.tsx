@@ -31,9 +31,9 @@ const Hero = () => {
       </div>
 
       {/* Main Content */}
-      <div className="relative z-10 container mx-auto max-w-[95vw] lg:max-w-[100rem] 2k:max-w-[110rem] 4k:max-w-[120rem] flex flex-col lg:flex-row items-center justify-between lg:space-x-48">
+      <div className="relative z-10 container mx-auto max-w-[95vw] lg:max-w-[100rem] 2k:max-w-[110rem] 4k:max-w-[120rem] flex flex-col lg:flex-row items-center lg:items-start justify-center lg:justify-between min-h-screen">
         {/* Left Side: Text and Buttons */}
-        <div className="w-full lg:w-[40%] flex flex-col items-start justify-center text-left">
+        <div className="w-full lg:w-1/2 flex flex-col items-center lg:items-start justify-center text-center lg:text-left">
           {/* Main Heading: Hello, my name is Viktor */}
           <h1 className=" text-left">
             <span className="font-roboto-mono text-[16px] md:text-2xl lg:text-4xl 2k:text-3xl 4k:text-5xl font-regular">
@@ -51,39 +51,34 @@ const Hero = () => {
           />
 
           {/* Buttons: Stacked on Mobile, Next to Each Other on Desktop */}
-          <div className="flex flex-col lg:flex-row gap-4 items-center lg:items-start">
+          <div className="flex flex-col sm:flex-row gap-4 items-center justify-center lg:justify-start w-full">
             {/* Show My Work Button */}
-            <a href="#work" className="w-full lg:w-auto sm:w-64">
+            <div className="w-full sm:w-64">
               <MagicButton
                 title="Show my work"
                 icon={<FaLocationArrow />}
                 position="right"
               />
-            </a>
+            </div>
             {/* Contact Me Button */}
-            <a href="#contact" className="w-full lg:w-auto sm:w-64">
+            <div className="w-full sm:w-64">
               <MagicButton
                 title="Contact Me"
                 icon={<FaEnvelope />}
                 position="right"
               />
-            </a>
+            </div>
           </div>
         </div>
 
-        {/* Right Side: Image for Desktop */}
-        <div className="hidden lg:flex w-full lg:w-[40%] justify-center lg:justify-end mt-10 lg:mt-0">
-          {/* Placeholder square for future image/animation */}
-          <div className="w-[300px] h-[300px] lg:w-[400px] lg:h-[400px] 2k:w-[500px] 2k:h-[500px] 4k:w-[600px] 4k:h-[600px] bg-gray-300">
-            {/* Replace this div with the future image/animation component */}
-          </div>
+        {/* Right Side: Image (Desktop) */}
+        <div className="hidden lg:flex w-1/2 justify-end items-center">
+          <div className="w-[400px] h-[400px] 2k:w-[500px] 2k:h-[500px] 4k:w-[600px] 4k:h-[600px] bg-white rounded-lg shadow-lg"></div>
         </div>
 
-        {/* Image for Mobile (scroll down to see) */}
-        <div className="lg:hidden mt-32">
-          <div className="w-[300px] h-[300px] mx-auto bg-gray-300">
-            {/* Replace with the future image/animation component */}
-          </div>
+        {/* Mobile Image (appears on scroll) */}
+        <div className="lg:hidden w-full flex justify-center mt-32">
+          <div className="w-[300px] h-[300px] bg-white rounded-lg shadow-lg"></div>
         </div>
       </div>
     </div>
