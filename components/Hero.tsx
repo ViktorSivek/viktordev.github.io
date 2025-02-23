@@ -54,7 +54,7 @@ const Hero = () => {
           />
 
           {/* Buttons: Stacked on Mobile, Next to Each Other on Desktop */}
-          <div className="flex flex-col sm:flex-row gap-4 w-full max-w-xl mt-8">
+          <div className="flex flex-col sm:flex-row gap-4 w-full max-w-xl mt-8 lg:mt-8 mb-20 lg:mb-0">
             <MagicButton
               title="Show my work"
               icon={<FaLocationArrow />}
@@ -73,11 +73,8 @@ const Hero = () => {
           <div className="w-[400px] h-[400px] 2k:w-[500px] 2k:h-[500px] 4k:w-[600px] 4k:h-[600px] bg-white rounded-lg shadow-lg"></div>
         </div>
 
-        {/* Mobile Image (appears on scroll) */}
-        <div 
-          className="fixed lg:hidden w-full flex justify-center top-[120vh] opacity-0 transition-all duration-500" 
-          id="mobile-square"
-        >
+        {/* Mobile Image (positioned below) */}
+        <div className="lg:hidden w-full flex justify-center mt-[50vh]">
           <div className="w-[300px] h-[300px] bg-white rounded-lg shadow-lg"></div>
         </div>
       </div>
