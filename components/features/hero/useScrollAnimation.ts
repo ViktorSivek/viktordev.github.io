@@ -9,7 +9,7 @@ export const useScrollAnimation = () => {
 
       const scrollPosition = window.scrollY
       const windowHeight = window.innerHeight
-      const threshold = windowHeight * 0.1 // Show after 10% scroll
+      const threshold = windowHeight * 0.8 // Show after 80% of first screen
 
       if (scrollPosition > threshold) {
         square.style.opacity = '1'
