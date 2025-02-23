@@ -1,84 +1,87 @@
 'use client'
 import { FaLocationArrow, FaEnvelope } from 'react-icons/fa6'
-import { useScrollAnimation } from './features/hero/useScrollAnimation'
 import MagicButton from './ui/MagicButton'
 import { Spotlight } from './ui/Spotlight'
 import { TextGenerateEffect } from './ui/TextGenerateEffect'
 
 const Hero = () => {
-  useScrollAnimation()
   return (
-    <div className="relative h-screen flex items-center justify-center">
-      {/* Spotlight effects */}
-      <div className="absolute inset-0">
-        <Spotlight
-          className="-top-40 -left-10 md:-left-32 md:-top-20 h-screen"
-          fill="white"
-        />
-        <Spotlight
-          className="h-[80vh] w-[50vw] top-10 left-full"
-          fill="purple"
-        />
-        <Spotlight className="left-80 top-28 h-[80vh] w-[50vw]" fill="blue" />
-      </div>
-
-      {/* Background */}
-      <div
-        className="absolute inset-0 w-full h-screen dark:bg-black-100 bg-white
-        dark:bg-grid-white/[0.03] bg-grid-black-100/[0.2] flex items-center justify-center"
-      >
-        <div
-          className="absolute pointer-events-none inset-0 flex items-center justify-center dark:bg-black-100
-         bg-white [mask-image:radial-gradient(ellipse_at_center,transparent_20%,black)]"
-        />
-      </div>
-
-      {/* Main Content */}
-      <div className="relative z-10 container mx-auto max-w-[95vw] lg:max-w-[100rem] 2k:max-w-[110rem] 4k:max-w-[120rem] flex flex-col lg:flex-row items-center justify-center h-full">
-        {/* Left Side: Text and Buttons */}
-        <div className="w-full lg:w-1/2 flex flex-col items-center lg:items-start justify-center text-center lg:text-left">
-          {/* Main Heading: Hello, my name is Viktor */}
-          <h1 className=" text-left">
-            <span className="font-roboto-mono text-[16px] md:text-2xl lg:text-4xl 2k:text-3xl 4k:text-5xl font-regular">
-              Hi, I am
-            </span>
-
-            <span className="font-roboto-mono font-bold text-purple text-[56px] md:text-[64px] lg:text-[90px] 2k:text-[100px] 4k:text-[120px] ml-8 font-regular">
-              Viktor
-            </span>
-          </h1>
-
-          <TextGenerateEffect
-            words="Transforming concepts into seamless user experiences."
-            className="font-roboto-mono text-left text-[24px] md:text-2xl lg:text-3xl 2k:text-4xl 4k:text-5xl font-regular"
+    <>
+      {/* Full-screen hero section */}
+      <div className="relative h-screen flex items-center justify-center">
+        {/* Spotlight effects */}
+        <div className="absolute inset-0">
+          <Spotlight
+            className="-top-40 -left-10 md:-left-32 md:-top-20 h-screen"
+            fill="white"
           />
+          <Spotlight
+            className="h-[80vh] w-[50vw] top-10 left-full"
+            fill="purple"
+          />
+          <Spotlight className="left-80 top-28 h-[80vh] w-[50vw]" fill="blue" />
+        </div>
 
-          {/* Buttons: Stacked on Mobile, Next to Each Other on Desktop */}
-          <div className="flex flex-col sm:flex-row gap-4 w-full max-w-xl mt-8 lg:mt-8 mb-20 lg:mb-0">
-            <MagicButton
-              title="Show my work"
-              icon={<FaLocationArrow />}
-              position="right"
+        {/* Background */}
+        <div
+          className="absolute inset-0 w-full h-screen dark:bg-black-100 bg-white
+          dark:bg-grid-white/[0.03] bg-grid-black-100/[0.2] flex items-center justify-center"
+        >
+          <div
+            className="absolute pointer-events-none inset-0 flex items-center justify-center dark:bg-black-100
+            bg-white [mask-image:radial-gradient(ellipse_at_center,transparent_20%,black)]"
+          />
+        </div>
+
+        {/* Main Content (text, buttons, big square for desktop) */}
+        <div className="relative z-10 container mx-auto max-w-[95vw] lg:max-w-[100rem] 2k:max-w-[110rem] 4k:max-w-[120rem] flex flex-col lg:flex-row items-center justify-center h-full">
+          {/* Left Side: Text and Buttons */}
+          <div className="w-full lg:w-1/2 flex flex-col items-center lg:items-start justify-center text-center lg:text-left">
+            {/* Main Heading */}
+            <h1 className="text-left">
+              <span className="font-roboto-mono text-[16px] md:text-2xl lg:text-4xl 2k:text-3xl 4k:text-5xl font-regular">
+                Hi, I am
+              </span>
+              <span className="font-roboto-mono font-bold text-purple text-[56px] md:text-[64px] lg:text-[90px] 2k:text-[100px] 4k:text-[120px] ml-8 font-regular">
+                Viktor
+              </span>
+            </h1>
+
+            <TextGenerateEffect
+              words="Transforming concepts into seamless user experiences."
+              className="font-roboto-mono text-left text-[24px] md:text-2xl lg:text-3xl 2k:text-4xl 4k:text-5xl font-regular"
             />
-            <MagicButton
-              title="Contact Me"
-              icon={<FaEnvelope />}
-              position="right"
-            />
+
+            {/* Buttons */}
+            <div className="flex flex-col sm:flex-row gap-4 w-full max-w-xl mt-8 lg:mt-8">
+              <MagicButton
+                title="Show my work"
+                icon={<FaLocationArrow />}
+                position="right"
+              />
+              <MagicButton
+                title="Contact Me"
+                icon={<FaEnvelope />}
+                position="right"
+              />
+            </div>
+          </div>
+
+          {/* Right Side: White Square (Desktop only) */}
+          <div className="hidden lg:flex w-1/2 justify-center items-center">
+            <div className="w-[400px] h-[400px] 2k:w-[500px] 2k:h-[500px] 4k:w-[600px] 4k:h-[600px] bg-white rounded-lg shadow-lg"></div>
           </div>
         </div>
-
-        {/* Right Side: Image (Desktop) */}
-        <div className="hidden lg:flex w-1/2 justify-center items-center">
-          <div className="w-[400px] h-[400px] 2k:w-[500px] 2k:h-[500px] 4k:w-[600px] 4k:h-[600px] bg-white rounded-lg shadow-lg"></div>
-        </div>
-
-        {/* Mobile Image (positioned below) */}
-        <div className="lg:hidden w-full flex justify-center mt-[50vh]">
-          <div className="w-[300px] h-[300px] bg-white rounded-lg shadow-lg"></div>
-        </div>
       </div>
-    </div>
+
+      {/* Mobile-only White Square AFTER the hero section (so it appears when you scroll) */}
+      <div className="lg:hidden w-full flex justify-center py-10">
+        <div className="w-[300px] h-[300px] bg-white rounded-lg shadow-lg"></div>
+      </div>
+
+      {/* Next sections go below ... */}
+      {/* <section>...</section> */}
+    </>
   )
 }
 
