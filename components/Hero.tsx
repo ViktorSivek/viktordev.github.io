@@ -39,7 +39,7 @@ const Hero = () => {
           <div className="w-full lg:w-1/2 flex flex-col items-center lg:items-start justify-center text-center lg:text-left">
             {/* Main Heading */}
             <h1 className="text-left">
-              <span className="font-roboto-mono text-[16px] md:text-2xl lg:text-4xl 2k:text-3xl 4k:text-5xl font-regular">
+              <span className="font-roboto-mono font-bold text-[24px] md:text-2xl lg:text-3xl 2k:text-4xl 4k:text-5xl font-regular mt-4 ">
                 Hi, I am
               </span>
               <span className="font-roboto-mono font-bold text-purple text-[56px] md:text-[64px] lg:text-[90px] 2k:text-[100px] 4k:text-[120px] ml-8 font-regular">
@@ -48,12 +48,12 @@ const Hero = () => {
             </h1>
 
             <TextGenerateEffect
-              words="Transforming concepts into seamless user experiences."
-              className="font-roboto-mono text-left text-[24px] md:text-2xl lg:text-3xl 2k:text-4xl 4k:text-5xl font-regular"
+              words="I’m the one who gets it done"
+              className="font-roboto-mono text-[24px] md:text-2xl lg:text-3xl 2k:text-4xl 4k:text-5xl font-regular mt-4"
             />
 
             {/* Buttons */}
-            <div className="flex flex-col sm:flex-row gap-4 w-full max-w-xl mt-8 lg:mt-8">
+            <div className="flex flex-col w-full lg:flex-row gap-4 max-w-xl mt-8 lg:w-auto">
               <MagicButton
                 title="Show my work"
                 icon={<FaLocationArrow />}
@@ -78,9 +78,6 @@ const Hero = () => {
       <div className="lg:hidden w-full flex justify-center py-10">
         <div className="w-[300px] h-[300px] bg-white rounded-lg shadow-lg"></div>
       </div>
-
-      {/* Next sections go below ... */}
-      {/* <section>...</section> */}
     </>
   )
 }
