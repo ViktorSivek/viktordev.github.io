@@ -38,7 +38,7 @@ const Hero = () => {
           {/* Left Side: Text and Buttons */}
           <div className="w-full lg:w-1/2 flex flex-col items-center lg:items-start justify-center text-center lg:text-left mt-12 md:mt-24 lg:mt-0">
             {/* Main Heading */}
-            <h1 className="text-left">
+            <h1 className="text-left landscape:mt-0">
               <span className="font-roboto-mono font-bold text-[20px] md:text-[24px] md:text-2xl lg:text-3xl 2k:text-4xl 4k:text-5xl font-regular mt-4 ">
                 Hi, I am
               </span>
@@ -53,7 +53,7 @@ const Hero = () => {
             />
 
             {/* Buttons */}
-            <div className="flex flex-col w-full lg:flex-row gap-4 max-w-xl pd lg:w-auto sm:mt-24 md:mt-24 lg:mt-0">
+            <div className="flex flex-col w-full lg:flex-row gap-4 max-w-xl pd lg:w-auto sm:mt-24 md:mt-24 lg:mt-0 landscape:mt-0">
               <MagicButton
                 title="Show my work"
                 icon={<FaLocationArrow />}
