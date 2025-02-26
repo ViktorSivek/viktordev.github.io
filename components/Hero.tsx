@@ -49,7 +49,7 @@ const Hero = () => {
 
             <TextGenerateEffect
               words="I’m the one, who gets it done"
-              className="font-roboto-mono text-[24px] md:text-2xl lg:text-3xl 2k:text-4xl 4k:text-5xl font-regular mt-4 mb-12 md:mb-24 lg:mb-0"
+              className="font-roboto-mono text-[24px] md:text-2xl lg:text-3xl 2k:text-4xl 4k:text-5xl font-regular mt-4 mb-12 md:mb-24 lg:mb-0 landscape:mb-0"
             />
 
             {/* Buttons */}
@@ -75,7 +75,7 @@ const Hero = () => {
       </div>
 
       {/* Mobile-only White Square AFTER the hero section (so it appears when you scroll) */}
-      <div className="lg:hidden w-full flex justify-center py-10 landscape:mt-8">
+      <div className="lg:hidden w-full flex justify-center py-10 landscape:mt-20">
         <div className="w-[300px] h-[300px] bg-white rounded-lg shadow-lg"></div>
       </div>
     </>
