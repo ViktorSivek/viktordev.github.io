@@ -8,7 +8,7 @@ const Hero = () => {
   return (
     <>
       {/* Full-screen hero section */}
-      <div className="relative h-screen flex items-center justify-center">
+      <div className="relative h-screen flex items-center justify-center landscape:items-start landscape:pt-4">
         {/* Spotlight effects */}
         <div className="absolute inset-0">
           <Spotlight
@@ -34,7 +34,7 @@ const Hero = () => {
         </div>
 
         {/* Main Content (text, buttons, big square for desktop) */}
-        <div className="relative z-10 container mx-auto max-w-[95vw] lg:max-w-[100rem] 2k:max-w-[110rem] 4k:max-w-[120rem] flex flex-col lg:flex-row items-center justify-center h-full mt-2 md:mt-24 lg:mt-0">
+        <div className="relative z-10 container mx-auto max-w-[95vw] lg:max-w-[100rem] 2k:max-w-[110rem] 4k:max-w-[120rem] flex flex-col lg:flex-row items-center justify-center h-full mt-2 md:mt-24 lg:mt-0 landscape:mt-0 landscape:justify-start">
           {/* Left Side: Text and Buttons */}
           <div className="w-full lg:w-1/2 flex flex-col items-center lg:items-start justify-center text-center lg:text-left mt-12 md:mt-24 lg:mt-0">
             {/* Main Heading */}
