@@ -53,7 +53,7 @@ const Hero = () => {
             />
 
             {/* Buttons */}
-            <div className="flex flex-col w-full lg:flex-row gap-4 max-w-xl pd lg:w-auto sm:mt-24 md:mt-24 lg:mt-0 landscape:mt-0">
+            <div className="flex flex-col w-full lg:flex-row gap-4 max-w-xl pd lg:w-auto sm:mt-24 md:mt-24 lg:mt-0 landscape:mt-0 landscape:mb-8">
               <MagicButton
                 title="Show my work"
                 icon={<FaLocationArrow />}
@@ -75,7 +75,7 @@ const Hero = () => {
       </div>
 
       {/* Mobile-only White Square AFTER the hero section (so it appears when you scroll) */}
-      <div className="lg:hidden w-full flex justify-center py-10">
+      <div className="lg:hidden w-full flex justify-center py-10 landscape:mt-8">
         <div className="w-[300px] h-[300px] bg-white rounded-lg shadow-lg"></div>
       </div>
     </>
