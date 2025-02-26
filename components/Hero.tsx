@@ -39,21 +39,21 @@ const Hero = () => {
           <div className="w-full lg:w-1/2 flex flex-col items-center lg:items-start justify-center text-center lg:text-left mt-12 md:mt-24 lg:mt-0">
             {/* Main Heading */}
             <h1 className="text-left">
-              <span className="font-roboto-mono font-bold text-[24px] md:text-2xl lg:text-3xl 2k:text-4xl 4k:text-5xl font-regular mt-4 ">
+              <span className="font-roboto-mono font-bold text-[20px] md:text-[24px] md:text-2xl lg:text-3xl 2k:text-4xl 4k:text-5xl font-regular mt-4 ">
                 Hi, I am
               </span>
-              <span className="font-roboto-mono font-bold text-purple text-[56px] md:text-[64px] lg:text-[90px] 2k:text-[100px] 4k:text-[120px] ml-8 font-regular">
+              <span className="font-roboto-mono font-bold text-purple text-[45px] sm:text-[50] md:text-[64px] lg:text-[90px] 2k:text-[100px] 4k:text-[120px] ml-6 md:ml-8 font-regular">
                 Viktor
               </span>
             </h1>
 
             <TextGenerateEffect
-              words="I’m the one who gets it done"
+              words="I’m the one, who gets it done"
               className="font-roboto-mono text-[24px] md:text-2xl lg:text-3xl 2k:text-4xl 4k:text-5xl font-regular mt-4 mb-12 md:mb-24 lg:mb-0"
             />
 
             {/* Buttons */}
-            <div className="flex flex-col w-full lg:flex-row gap-4 max-w-xl pd lg:w-auto mt-20 md:mt-24 lg:mt-0">
+            <div className="flex flex-col w-full lg:flex-row gap-4 max-w-xl pd lg:w-auto sm:mt-24 md:mt-24 lg:mt-0">
               <MagicButton
                 title="Show my work"
                 icon={<FaLocationArrow />}
