@@ -90,7 +90,7 @@ const ModelViewer: React.FC<ModelViewerProps> = ({
         // Scale the model to fit
         const size = box.getSize(new THREE.Vector3())
         const maxDim = Math.max(size.x, size.y, size.z)
-        const scale = 3 / maxDim
+        const scale = 4 / maxDim  // Increased scale factor from 3 to 4
         gltf.scene.scale.set(scale, scale, scale)
 
         // Setup animations

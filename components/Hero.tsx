@@ -70,7 +70,7 @@ const Hero = () => {
 
           {/* Right Side: 3D Model (Desktop only) */}
           <div className="hidden lg:flex w-1/2 justify-center items-center">
-            <div className="w-[400px] h-[400px] 2k:w-[500px] 2k:h-[500px] 4k:w-[600px] 4k:h-[600px]">
+            <div className="w-[500px] h-[500px] 2k:w-[600px] 2k:h-[600px] 4k:w-[700px] 4k:h-[700px]">
               <ModelViewer 
                 modelPath="/models/model.glb" 
                 autoRotate={true}
@@ -83,7 +83,7 @@ const Hero = () => {
 
       {/* Mobile-only 3D Model AFTER the hero section (so it appears when you scroll) */}
       <div className="lg:hidden w-full flex justify-center py-10 landscape:mt-20">
-        <div className="w-[300px] h-[300px]">
+        <div className="w-[350px] h-[350px]">
           <ModelViewer 
             modelPath="/models/model.glb" 
             autoRotate={true}
