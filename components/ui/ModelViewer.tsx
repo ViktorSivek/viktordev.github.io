@@ -71,7 +71,7 @@ const ModelViewer: React.FC<ModelViewerProps> = ({
     controls.dampingFactor = 0.05
     controls.screenSpacePanning = false
     controls.enableZoom = false // Disable zoom functionality
-    controls.autoRotate = autoRotate
+    controls.autoRotate = false // Always disable auto-rotation regardless of prop
     controls.autoRotateSpeed = 1.0
 
     // Load the 3D model
