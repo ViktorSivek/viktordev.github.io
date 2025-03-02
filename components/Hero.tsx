@@ -3,6 +3,7 @@ import { FaLocationArrow, FaEnvelope } from 'react-icons/fa6'
 import MagicButton from './ui/MagicButton'
 import { Spotlight } from './ui/Spotlight'
 import { TextGenerateEffect } from './ui/TextGenerateEffect'
+import ModelViewer from './ui/ModelViewer'
 
 const Hero = () => {
   return (
@@ -67,16 +68,20 @@ const Hero = () => {
             </div>
           </div>
 
-          {/* Right Side: White Square (Desktop only) */}
+          {/* Right Side: 3D Model (Desktop only) */}
           <div className="hidden lg:flex w-1/2 justify-center items-center">
-            <div className="w-[400px] h-[400px] 2k:w-[500px] 2k:h-[500px] 4k:w-[600px] 4k:h-[600px] bg-white rounded-lg shadow-lg"></div>
+            <div className="w-[400px] h-[400px] 2k:w-[500px] 2k:h-[500px] 4k:w-[600px] 4k:h-[600px] rounded-lg shadow-lg">
+              <ModelViewer modelPath="/models/model.glb" />
+            </div>
           </div>
         </div>
       </div>
 
-      {/* Mobile-only White Square AFTER the hero section (so it appears when you scroll) */}
+      {/* Mobile-only 3D Model AFTER the hero section (so it appears when you scroll) */}
       <div className="lg:hidden w-full flex justify-center py-10 landscape:mt-20">
-        <div className="w-[300px] h-[300px] bg-white rounded-lg shadow-lg"></div>
+        <div className="w-[300px] h-[300px] rounded-lg shadow-lg">
+          <ModelViewer modelPath="/models/model.glb" />
+        </div>
       </div>
     </>
   )
