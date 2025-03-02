@@ -70,8 +70,8 @@ const ModelViewer: React.FC<ModelViewerProps> = ({
     controls.enableDamping = true
     controls.dampingFactor = 0.05
     controls.screenSpacePanning = false
-    controls.minDistance = 2
-    controls.maxDistance = 10
+    controls.minDistance = 1.5
+    controls.maxDistance = 15
     controls.autoRotate = autoRotate
     controls.autoRotateSpeed = 1.0
 
