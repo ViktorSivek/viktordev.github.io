@@ -1,5 +1,5 @@
 'use client'
-import React, { useRef, useEffect } from 'react'
+import React, { useRef, useEffect, useState } from 'react'
 import * as THREE from 'three'
 import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader.js'
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js'
@@ -7,17 +7,32 @@ import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js'
 interface ModelViewerProps {
   modelPath: string
   className?: string
+  autoRotate?: boolean
+  backgroundColor?: string
 }
 
-const ModelViewer: React.FC<ModelViewerProps> = ({ modelPath, className }) => {
+const ModelViewer: React.FC<ModelViewerProps> = ({ 
+  modelPath, 
+  className,
+  autoRotate = true,
+  backgroundColor = '#ffffff'
+}) => {
   const containerRef = useRef<HTMLDivElement>(null)
+  const [loading, setLoading] = useState(true)
+  const [progress, setProgress] = useState(0)
+  const [error, setError] = useState<string | null>(null)
 
   useEffect(() => {
     if (!containerRef.current) return
 
+    let mixer: THREE.AnimationMixer | null = null
+    let clock = new THREE.Clock()
+    let animationActions: THREE.AnimationAction[] = []
+    let activeAction: THREE.AnimationAction | null = null
+
     // Setup scene
     const scene = new THREE.Scene()
-    scene.background = new THREE.Color(0xffffff)
+    scene.background = new THREE.Color(backgroundColor)
 
     // Setup camera
     const camera = new THREE.PerspectiveCamera(
@@ -29,17 +44,20 @@ const ModelViewer: React.FC<ModelViewerProps> = ({ modelPath, className }) => {
     camera.position.z = 5
 
     // Setup renderer
-    const renderer = new THREE.WebGLRenderer({ antialias: true })
+    const renderer = new THREE.WebGLRenderer({ 
+      antialias: true,
+      alpha: true 
+    })
     renderer.setSize(
       containerRef.current.clientWidth,
       containerRef.current.clientHeight
     )
     renderer.setPixelRatio(window.devicePixelRatio)
-    renderer.outputEncoding = THREE.sRGBEncoding
+    renderer.outputColorSpace = THREE.SRGBColorSpace
     containerRef.current.appendChild(renderer.domElement)
 
     // Add lights
-    const ambientLight = new THREE.AmbientLight(0xffffff, 0.5)
+    const ambientLight = new THREE.AmbientLight(0xffffff, 0.7)
     scene.add(ambientLight)
 
     const directionalLight = new THREE.DirectionalLight(0xffffff, 1)
@@ -51,8 +69,10 @@ const ModelViewer: React.FC<ModelViewerProps> = ({ modelPath, className }) => {
     controls.enableDamping = true
     controls.dampingFactor = 0.05
     controls.screenSpacePanning = false
-    controls.minDistance = 3
+    controls.minDistance = 2
     controls.maxDistance = 10
+    controls.autoRotate = autoRotate
+    controls.autoRotateSpeed = 1.0
 
     // Load the 3D model
     const loader = new GLTFLoader()
@@ -72,23 +92,54 @@ const ModelViewer: React.FC<ModelViewerProps> = ({ modelPath, className }) => {
         const scale = 3 / maxDim
         gltf.scene.scale.set(scale, scale, scale)
 
+        // Setup animations
+        if (gltf.animations && gltf.animations.length) {
+          mixer = new THREE.AnimationMixer(gltf.scene)
+          
+          gltf.animations.forEach((clip) => {
+            const action = mixer.clipAction(clip)
+            animationActions.push(action)
+          })
+          
+          // Play the first animation by default
+          if (animationActions.length > 0) {
+            activeAction = animationActions[0]
+            activeAction.play()
+          }
+        }
+
         scene.add(gltf.scene)
+        setLoading(false)
       },
       (xhr) => {
-        console.log((xhr.loaded / xhr.total) * 100 + '% loaded')
+        const percentComplete = (xhr.loaded / xhr.total) * 100
+        setProgress(percentComplete)
+        console.log(percentComplete + '% loaded')
       },
       (error) => {
         console.error('An error happened', error)
+        setError('Failed to load 3D model')
+        setLoading(false)
       }
     )
 
     // Animation loop
     const animate = () => {
-      requestAnimationFrame(animate)
+      const id = requestAnimationFrame(animate)
+      
+      // Update animations
+      if (mixer) {
+        const delta = clock.getDelta()
+        mixer.update(delta)
+      }
+      
       controls.update()
       renderer.render(scene, camera)
+      
+      return () => cancelAnimationFrame(id)
     }
-    animate()
+    
+    const animationId = animate()
 
     // Handle window resize
     const handleResize = () => {
@@ -106,17 +157,40 @@ const ModelViewer: React.FC<ModelViewerProps> = ({ modelPath, className }) => {
     // Cleanup
     return () => {
       window.removeEventListener('resize', handleResize)
-      if (containerRef.current) {
+      cancelAnimationFrame(animationId)
+      if (containerRef.current && containerRef.current.contains(renderer.domElement)) {
         containerRef.current.removeChild(renderer.domElement)
       }
+      
+      // Dispose resources
+      renderer.dispose()
+      if (mixer) mixer.stopAllAction()
     }
-  }, [modelPath])
+  }, [modelPath, autoRotate, backgroundColor])
 
   return (
-    <div
-      ref={containerRef}
-      className={`w-full h-full rounded-lg overflow-hidden ${className}`}
-    />
+    <div className={`relative w-full h-full ${className}`}>
+      {loading && (
+        <div className="absolute inset-0 flex flex-col items-center justify-center bg-gray-100 bg-opacity-50 rounded-lg">
+          <div className="w-full max-w-md bg-white rounded-full h-2.5 dark:bg-gray-700 overflow-hidden">
+            <div 
+              className="bg-purple h-2.5 rounded-full" 
+              style={{ width: `${progress}%` }}
+            ></div>
+          </div>
+          <p className="mt-2 text-sm text-gray-600">Loading model... {Math.round(progress)}%</p>
+        </div>
+      )}
+      {error && (
+        <div className="absolute inset-0 flex items-center justify-center bg-red-100 bg-opacity-50 rounded-lg">
+          <p className="text-red-600">{error}</p>
+        </div>
+      )}
+      <div
+        ref={containerRef}
+        className="w-full h-full rounded-lg overflow-hidden"
+      />
+    </div>
   )
 }
 
