@@ -32,7 +32,8 @@ const ModelViewer: React.FC<ModelViewerProps> = ({
 
     // Setup scene
     const scene = new THREE.Scene()
-    scene.background = new THREE.Color(backgroundColor)
+    // Make background transparent if backgroundColor is 'transparent'
+    scene.background = backgroundColor === 'transparent' ? null : new THREE.Color(backgroundColor)
 
     // Setup camera
     const camera = new THREE.PerspectiveCamera(
@@ -46,7 +47,7 @@ const ModelViewer: React.FC<ModelViewerProps> = ({
     // Setup renderer
     const renderer = new THREE.WebGLRenderer({ 
       antialias: true,
-      alpha: true 
+      alpha: backgroundColor === 'transparent' // Enable alpha channel for transparency
     })
     renderer.setSize(
       containerRef.current.clientWidth,
@@ -171,24 +172,24 @@ const ModelViewer: React.FC<ModelViewerProps> = ({
   return (
     <div className={`relative w-full h-full ${className}`}>
       {loading && (
-        <div className="absolute inset-0 flex flex-col items-center justify-center bg-gray-100 bg-opacity-50 rounded-lg">
-          <div className="w-full max-w-md bg-white rounded-full h-2.5 dark:bg-gray-700 overflow-hidden">
+        <div className="absolute inset-0 flex flex-col items-center justify-center bg-transparent">
+          <div className="w-full max-w-md bg-transparent rounded-full h-2.5 dark:bg-gray-800/30 overflow-hidden">
             <div 
               className="bg-purple h-2.5 rounded-full" 
               style={{ width: `${progress}%` }}
             ></div>
           </div>
-          <p className="mt-2 text-sm text-gray-600">Loading model... {Math.round(progress)}%</p>
+          <p className="mt-2 text-sm text-white dark:text-gray-300">Loading model... {Math.round(progress)}%</p>
         </div>
       )}
       {error && (
-        <div className="absolute inset-0 flex items-center justify-center bg-red-100 bg-opacity-50 rounded-lg">
-          <p className="text-red-600">{error}</p>
+        <div className="absolute inset-0 flex items-center justify-center bg-transparent">
+          <p className="text-red-400">{error}</p>
         </div>
       )}
       <div
         ref={containerRef}
-        className="w-full h-full rounded-lg overflow-hidden"
+        className="w-full h-full overflow-hidden"
       />
     </div>
   )
