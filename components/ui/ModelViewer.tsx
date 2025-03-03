@@ -25,9 +25,12 @@ const ModelViewer: React.FC<ModelViewerProps> = ({
   useEffect(() => {
     if (!containerRef.current) return
 
+    // Store a reference to the current container element
+    const currentContainer = containerRef.current
+
     let mixer: THREE.AnimationMixer | null = null
-    let clock = new THREE.Clock()
-    let animationActions: THREE.AnimationAction[] = []
+    const clock = new THREE.Clock()
+    const animationActions: THREE.AnimationAction[] = []
     let activeAction: THREE.AnimationAction | null = null
 
     // Setup scene
@@ -38,7 +41,7 @@ const ModelViewer: React.FC<ModelViewerProps> = ({
     // Setup camera
     const camera = new THREE.PerspectiveCamera(
       45,
-      containerRef.current.clientWidth / containerRef.current.clientHeight,
+      currentContainer.clientWidth / currentContainer.clientHeight,
       0.1,
       1000
     )
@@ -50,12 +53,12 @@ const ModelViewer: React.FC<ModelViewerProps> = ({
       alpha: backgroundColor === 'transparent' // Enable alpha channel for transparency
     })
     renderer.setSize(
-      containerRef.current.clientWidth,
-      containerRef.current.clientHeight
+      currentContainer.clientWidth,
+      currentContainer.clientHeight
     )
     renderer.setPixelRatio(window.devicePixelRatio)
     renderer.outputColorSpace = THREE.SRGBColorSpace
-    containerRef.current.appendChild(renderer.domElement)
+    currentContainer.appendChild(renderer.domElement)
 
     // Add lights
     const ambientLight = new THREE.AmbientLight(0xffffff, 0.7)
@@ -143,13 +146,13 @@ const ModelViewer: React.FC<ModelViewerProps> = ({
 
     // Handle window resize
     const handleResize = () => {
-      if (!containerRef.current) return
+      if (!currentContainer) return
       camera.aspect =
-        containerRef.current.clientWidth / containerRef.current.clientHeight
+        currentContainer.clientWidth / currentContainer.clientHeight
       camera.updateProjectionMatrix()
       renderer.setSize(
-        containerRef.current.clientWidth,
-        containerRef.current.clientHeight
+        currentContainer.clientWidth,
+        currentContainer.clientHeight
       )
     }
     window.addEventListener('resize', handleResize)
@@ -158,8 +161,8 @@ const ModelViewer: React.FC<ModelViewerProps> = ({
     return () => {
       window.removeEventListener('resize', handleResize)
       cancelAnimationFrame(animationId)
-      if (containerRef.current && containerRef.current.contains(renderer.domElement)) {
-        containerRef.current.removeChild(renderer.domElement)
+      if (currentContainer && currentContainer.contains(renderer.domElement)) {
+        currentContainer.removeChild(renderer.domElement)
       }
       
       // Dispose resources
