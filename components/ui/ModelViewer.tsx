@@ -100,8 +100,10 @@ const ModelViewer: React.FC<ModelViewerProps> = ({
           mixer = new THREE.AnimationMixer(gltf.scene)
           
           gltf.animations.forEach((clip) => {
-            const action = mixer.clipAction(clip)
-            animationActions.push(action)
+            if (mixer) {  // Add null check here
+              const action = mixer.clipAction(clip)
+              animationActions.push(action)
+            }
           })
           
           // Play the first animation by default
