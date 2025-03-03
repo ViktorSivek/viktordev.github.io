@@ -73,7 +73,7 @@ const Hero = () => {
             <div className="w-[700px] h-[700px] 2k:w-[800px] 2k:h-[800px] 4k:w-[900px] 4k:h-[900px]">
               <ModelViewer 
                 modelPath="/models/model.glb" 
-                autoRotate={true}
+                autoRotate={false}
                 backgroundColor="transparent"
               />
             </div>
@@ -86,7 +86,7 @@ const Hero = () => {
         <div className="w-[500px] h-[500px]">
           <ModelViewer 
             modelPath="/models/model.glb" 
-            autoRotate={true}
+            autoRotate={false}
             backgroundColor="transparent"
           />
         </div>
