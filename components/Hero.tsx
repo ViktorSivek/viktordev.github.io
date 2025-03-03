@@ -49,7 +49,7 @@ const Hero = () => {
             </h1>
 
             <TextGenerateEffect
-              words="I’m the one, who gets it done"
+              words="I'm the one, who gets it done"
               className="font-roboto-mono text-[24px] md:text-2xl lg:text-3xl 2k:text-4xl 4k:text-5xl font-regular mt-4 mb-12 md:mb-24 lg:mb-0 landscape:mb-0"
             />
 
@@ -73,7 +73,7 @@ const Hero = () => {
             <div className="w-[700px] h-[700px] 2k:w-[800px] 2k:h-[800px] 4k:w-[900px] 4k:h-[900px]">
               <ModelViewer 
                 modelPath="/models/model.glb" 
-                autoRotate={false}
+                autoRotate={true}
                 backgroundColor="transparent"
               />
             </div>
@@ -86,7 +86,7 @@ const Hero = () => {
         <div className="w-[500px] h-[500px]">
           <ModelViewer 
             modelPath="/models/model.glb" 
-            autoRotate={false}
+            autoRotate={true}
             backgroundColor="transparent"
           />
         </div>

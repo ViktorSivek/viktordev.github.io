@@ -74,7 +74,7 @@ const ModelViewer: React.FC<ModelViewerProps> = ({
     controls.dampingFactor = 0.05
     controls.screenSpacePanning = false
     controls.enableZoom = false // Disable zoom functionality
-    controls.autoRotate = false // Always disable auto-rotation regardless of prop
+    controls.autoRotate = autoRotate // Use the autoRotate prop value
     controls.autoRotateSpeed = 1.0
 
     // Load the 3D model
@@ -167,7 +167,9 @@ const ModelViewer: React.FC<ModelViewerProps> = ({
       
       // Dispose resources
       renderer.dispose()
-      if (mixer) mixer.stopAllAction()
+      if (mixer) {
+        mixer.stopAllAction()
+      }
     }
   }, [modelPath, autoRotate, backgroundColor])
 
