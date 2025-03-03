@@ -127,8 +127,10 @@ const ModelViewer: React.FC<ModelViewerProps> = ({
     )
 
     // Animation loop
+    let animationId: number;
+    
     const animate = () => {
-      const id = requestAnimationFrame(animate)
+      animationId = requestAnimationFrame(animate)
       
       // Update animations
       if (mixer) {
@@ -138,11 +140,9 @@ const ModelViewer: React.FC<ModelViewerProps> = ({
       
       controls.update()
       renderer.render(scene, camera)
-      
-      return () => cancelAnimationFrame(id)
     }
     
-    const animationId = animate()
+    animate() // Start the animation loop
 
     // Handle window resize
     const handleResize = () => {
