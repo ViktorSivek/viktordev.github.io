@@ -49,7 +49,7 @@ const Hero = () => {
             </h1>
 
             <TextGenerateEffect
-              words="I'm the one, who gets it done"
+              words="I'm the one, who gets it done."
               className="font-roboto-mono text-[24px] md:text-2xl lg:text-3xl 2k:text-4xl 4k:text-5xl font-regular mt-4 mb-12 md:mb-24 lg:mb-0 landscape:mb-0"
             />
 
@@ -71,8 +71,8 @@ const Hero = () => {
           {/* Right Side: 3D Model (Desktop only) */}
           <div className="hidden lg:flex w-1/2 justify-center items-center">
             <div className="w-[700px] h-[700px] 2k:w-[800px] 2k:h-[800px] 4k:w-[900px] 4k:h-[900px]">
-              <ModelViewer 
-                modelPath="/models/model.glb" 
+              <ModelViewer
+                modelPath="/models/model.glb"
                 autoRotate={false}
                 backgroundColor="transparent"
               />
@@ -84,8 +84,8 @@ const Hero = () => {
       {/* Mobile-only 3D Model AFTER the hero section (so it appears when you scroll) */}
       <div className="lg:hidden w-full flex justify-center py-10 landscape:mt-20">
         <div className="w-[500px] h-[500px]">
-          <ModelViewer 
-            modelPath="/models/model.glb" 
+          <ModelViewer
+            modelPath="/models/model.glb"
             autoRotate={false}
             backgroundColor="transparent"
           />
