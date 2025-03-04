@@ -2,6 +2,9 @@ import { navItems } from '@/data'
 import Grid from '@/components/Grid'
 import Hero from '@/components/Hero'
 import { FloatingNav } from '@/components/ui/FloatingNavbar'
+import Experiences from '@/components/features/experiences'
+import Projects from '@/components/features/projects'
+import Contact from '@/components/features/contact'
 
 export default function Home() {
   return (
@@ -10,6 +13,9 @@ export default function Home() {
         <FloatingNav navItems={navItems} />
         <Hero />
         <Grid />
+        <Experiences />
+        <Projects />
+        <Contact />
       </div>
     </main>
   )
