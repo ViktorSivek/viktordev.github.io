@@ -16,10 +16,10 @@ export const SectionHeader = ({ subtitle, title, className }: SectionHeaderProps
       whileInView={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.7, delay: 0.1 }}
       viewport={{ once: true }}
-      className={cn("mb-10", className)}
+      className={cn("mb-16 text-center", className)}
     >
-      <p className="text-sm text-white/80 uppercase tracking-wider mb-2">{subtitle}</p>
-      <h2 className="text-4xl md:text-5xl font-bold text-white">{title}</h2>
+      <p className="font-roboto-mono text-white uppercase tracking-wider mb-3 text-base md:text-lg">{subtitle}</p>
+      <h2 className="font-roboto-mono text-5xl md:text-6xl lg:text-7xl font-bold text-purple">{title}</h2>
     </motion.div>
   )
 }
