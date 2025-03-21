@@ -8,13 +8,16 @@ import {
   OrbitControls,
   Preload,
   useTexture,
+  Html,
 } from '@react-three/drei'
 
-// Simple loader component
+// Simple loader component using Html from drei
 const CanvasLoader = () => (
-  <div className="flex justify-center items-center h-full">
-    <div className="w-5 h-5 rounded-full bg-white animate-pulse" />
-  </div>
+  <Html center>
+    <div className="flex justify-center items-center">
+      <div className="w-5 h-5 rounded-full bg-white animate-pulse" />
+    </div>
+  </Html>
 )
 
 const Ball = ({ imgUrl }: { imgUrl: string }) => {
