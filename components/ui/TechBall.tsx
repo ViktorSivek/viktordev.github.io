@@ -33,15 +33,15 @@ const Ball = ({ imgUrl }: { imgUrl: string }) => {
         intensity={0.8} 
         castShadow 
       />
-      <pointLight position={[-10, -10, -10]} intensity={0.5} color="#a78bfa" />
+      <pointLight position={[-10, -10, -10]} intensity={0.5} color="#CBACF9" />
       <mesh castShadow receiveShadow scale={2.5}>
         <dodecahedronGeometry args={[1, 2]} />
         <meshStandardMaterial
-          color="#4c1d95"  // Lighter purple for better visibility
-          metalness={0.9}
-          roughness={0.1}
-          emissive="#7c3aed"  // Brighter emissive color
-          emissiveIntensity={0.4}  // Increased intensity
+          color="#CBACF9"  // Using the exact purple from tailwind config
+          metalness={0.8}
+          roughness={0.2}
+          emissive="#CBACF9"  // Matching emissive color
+          emissiveIntensity={0.3}  // Adjusted intensity
           polygonOffset
           polygonOffsetFactor={-5}
         />
