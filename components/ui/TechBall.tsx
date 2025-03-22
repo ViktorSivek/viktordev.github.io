@@ -34,7 +34,7 @@ const Ball = ({ imgUrl }: { imgUrl: string }) => {
         castShadow 
       />
       <pointLight position={[-10, -10, -10]} intensity={0.5} color="#CBACF9" />
-      <mesh castShadow receiveShadow scale={2.5}>
+      <mesh castShadow receiveShadow scale={1.75}>
         <dodecahedronGeometry args={[1, 2]} />
         <meshStandardMaterial
           color="#CBACF9"  // Using the exact purple from tailwind config
@@ -61,7 +61,7 @@ export const TechBall = ({ icon }: { icon: string }) => {
     <Canvas 
       dpr={[1, 2]} 
       gl={{ preserveDrawingBuffer: true }}
-      camera={{ position: [0, 0, 5], fov: 45 }}
+      camera={{ position: [0, 0, 4.5], fov: 40 }}
       style={{ background: 'transparent' }}  // Ensure transparent background
     >
       <Suspense fallback={<CanvasLoader />}>
