@@ -21,20 +21,12 @@ const AboutSection = () => {
         className="max-w-3xl mx-auto text-center"
       >
         <p className="text-white text-lg leading-relaxed mb-6">
-          I am an Informatics student passionate about web app development, data
-          analytics and the exciting world of artificial intelligence. I really
-          enjoy creating web applications, handling both the back and front
-          ends. I also drawn to data analysis, data visualization, and machine
-          learning. Python is my go-to programming language, and I have been
-          using lots of its libraries like Pandas, Numpy, Matplotlib, Django,
-          Selenium, and Scikit-learn. I can also work with web languages like
-          HTML, CSS, JavaScript, and I am currently learning frameworks React
-          and Next.js. I use SQL to work with data, and Tableau or Power BI for
-          creating visualizations. I got some little experience with Linux and
-          have also worked with Microsoft Azure. I am a fast learner and love
-          solving problems, always ready for new challenges to create
-          user-friendly solutions. Lets team up and make your ideas come to
-          life!
+          I'm a developer passionate about full-stack projects, data analytics, and AI/ML. 
+          Working primarily in Python and JavaScript, I build robust applications, automate 
+          workflows, and create AI-driven solutions. As an AI enthusiast, I leverage 
+          cutting-edge technologies to boost productivity. I'm also comfortable with Linux 
+          and cloud platforms. Always ready to solve problems and deliver user-friendly 
+          solutions. Let's team up and bring your ideas to life!
         </p>
 
         <motion.div
