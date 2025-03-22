@@ -18,7 +18,7 @@ const AboutSection = () => {
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8 }}
-        className="max-w-3xl mx-auto text-center"
+        className="max-w-3xl md:max-w-3xl lg:max-w-4xl 2k:max-w-5xl 4k:max-w-6xl mx-auto text-center"
       >
         <p className="text-white text-lg md:text-xl lg:text-xl 2k:text-2xl 4k:text-3xl leading-relaxed mb-6">
           I'm a developer passionate about full-stack projects, data analytics, and AI/ML. 
