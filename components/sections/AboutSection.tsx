@@ -6,6 +6,8 @@ import { Section } from '@/components/ui/Section'
 import { TechBall } from '@/components/ui/TechBall'
 import { technologies } from '@/data/technologies'
 import { cn } from '@/lib/utils'
+import { FaDownload } from 'react-icons/fa6'
+import MagicButton from '@/components/ui/MagicButton'
 
 const AboutSection = () => {
   return (
@@ -35,20 +37,20 @@ const AboutSection = () => {
           life!
         </p>
 
-        <motion.a
-          href="/cv/CV_ViktorSívek.pdf"
-          download
+        <motion.div
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           transition={{ delay: 0.3, duration: 0.5 }}
-          className={cn(
-            'mt-8 bg-gradient-to-r from-purple-500 to-blue-500 hover:from-purple-600 hover:to-blue-600',
-            'text-white font-bold py-3 px-8 rounded-full inline-block',
-            'transform transition-all duration-300 hover:scale-105 shadow-lg hover:shadow-xl'
-          )}
+          className="flex justify-center"
         >
-          Download CV
-        </motion.a>
+          <MagicButton
+            title="Download CV"
+            icon={<FaDownload />}
+            position="right"
+            href="/cv/CV_ViktorSívek.pdf"
+            download={true}
+          />
+        </motion.div>
 
         <div className="flex flex-row flex-wrap justify-center gap-10 mt-12">
           {technologies.map((technology) => (
