@@ -83,21 +83,9 @@ const config: Config = {
             transform: 'translate(-50%,-40%) scale(1)',
           },
         },
-        tilt: {
-          '0%, 50%, 100%': {
-            transform: 'rotate(0deg)',
-          },
-          '25%': {
-            transform: 'rotate(1deg)',
-          },
-          '75%': {
-            transform: 'rotate(-1deg)',
-          },
-        },
       },
       animation: {
         spotlight: 'spotlight 2s ease .75s 1 forwards',
-        tilt: 'tilt 10s infinite linear',
       },
     },
   },

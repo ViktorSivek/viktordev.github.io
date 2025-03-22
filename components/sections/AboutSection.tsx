@@ -3,16 +3,14 @@
 import { motion } from 'framer-motion'
 import { SectionHeader } from '@/components/ui/SectionHeader'
 import { Section } from '@/components/ui/Section'
+import { TechBall } from '@/components/ui/TechBall'
 import { technologies } from '@/data/technologies'
 import { FaDownload } from 'react-icons/fa6'
 import MagicButton from '@/components/ui/MagicButton'
-import { TechCard } from '@/components/ui/TechCard'
 
 const AboutSection = () => {
   return (
-    <Section id="about" className="relative">
-      {/* Add a subtle background effect */}
-      <div className="absolute inset-0 bg-gradient-to-b from-purple/10 to-black-100/20 pointer-events-none" />
+    <Section id="about">
       <SectionHeader subtitle="Introduction" title="About Me" />
 
       <motion.div
@@ -46,31 +44,13 @@ const AboutSection = () => {
           />
         </motion.div>
 
-        {/* Tech grid with new TechCard component */}
-        <motion.h3
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          transition={{ delay: 0.2, duration: 0.5 }}
-          className="text-xl md:text-2xl font-semibold text-white mt-12 mb-6"
-        >
-          Technologies I Work With
-        </motion.h3>
-        
-        <motion.div 
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          transition={{ delay: 0.4, duration: 0.8 }}
-          className="flex flex-wrap justify-center gap-4 md:gap-6"
-        >
+        <div className="flex flex-row flex-wrap justify-center gap-10 mt-12">
           {technologies.map((technology) => (
-            <TechCard 
-              key={technology.name}
-              icon={technology.icon}
-              name={technology.name}
-              className="backdrop-blur-md"
-            />
+            <div className="w-24 h-24" key={technology.name}>
+              <TechBall icon={technology.icon} />
+            </div>
           ))}
-        </motion.div>
+        </div>
       </motion.div>
     </Section>
   )
