@@ -5,7 +5,6 @@ import { SectionHeader } from '@/components/ui/SectionHeader'
 import { Section } from '@/components/ui/Section'
 import { TechBall } from '@/components/ui/TechBall'
 import { technologies } from '@/data/technologies'
-import { cn } from '@/lib/utils'
 import { FaDownload } from 'react-icons/fa6'
 import MagicButton from '@/components/ui/MagicButton'
 
@@ -21,12 +20,13 @@ const AboutSection = () => {
         className="max-w-3xl md:max-w-3xl lg:max-w-4xl 2k:max-w-5xl 4k:max-w-6xl mx-auto text-center"
       >
         <p className="text-white text-lg md:text-xl lg:text-xl 2k:text-2xl 4k:text-3xl leading-relaxed mb-6">
-          I'm a developer passionate about full-stack projects, data analytics, and AI/ML. 
-          Working primarily in Python and JavaScript, I build robust applications, automate 
-          workflows, and create AI-driven solutions. As an AI enthusiast, I leverage 
-          cutting-edge technologies to boost productivity. I'm also comfortable with Linux 
-          and cloud platforms. Always ready to solve problems and deliver user-friendly 
-          solutions. Let's team up and bring your ideas to life!
+          I'm a developer passionate about full-stack projects, data analytics,
+          and AI/ML. Working primarily in Python and JavaScript, I build robust
+          applications, automate workflows, and create AI-driven solutions. As
+          an AI enthusiast, I leverage cutting-edge technologies to boost
+          productivity. I'm also comfortable with Linux and cloud platforms.
+          Always ready to solve problems and deliver user-friendly solutions.
+          Let's team up and bring your ideas to life!
         </p>
 
         <motion.div
