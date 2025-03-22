@@ -34,7 +34,7 @@ const Ball = ({ imgUrl }: { imgUrl: string }) => {
         castShadow 
       />
       <pointLight position={[-10, -10, -10]} intensity={0.5} color="#CBACF9" />
-      <mesh castShadow receiveShadow scale={1.75}>
+      <mesh castShadow receiveShadow scale={1.25}>
         <dodecahedronGeometry args={[1, 2]} />
         <meshStandardMaterial
           color="#CBACF9"  // Using the exact purple from tailwind config
@@ -48,7 +48,7 @@ const Ball = ({ imgUrl }: { imgUrl: string }) => {
         <Decal
           position={[0, 0, 1]}
           rotation={[2 * Math.PI, 0, 6.25]}
-          scale={1.5}  // Slightly larger decal
+          scale={1.2}  // Smaller decal
           map={decal}
         />
       </mesh>
