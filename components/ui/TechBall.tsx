@@ -24,7 +24,7 @@ const Ball = ({ imgUrl }: { imgUrl: string }) => {
   const [decal] = useTexture([imgUrl])
 
   return (
-    <Float speed={1.5} rotationIntensity={1.2} floatIntensity={1.8}>
+    <Float speed={1.5} rotationIntensity={0.2} floatIntensity={0.8}>
       <ambientLight intensity={0.25} />
       <spotLight 
         position={[10, 10, 10]} 
@@ -68,8 +68,7 @@ export const TechBall = ({ icon }: { icon: string }) => {
         <OrbitControls 
           enableZoom={false} 
           enablePan={false}
-          autoRotate
-          autoRotateSpeed={0.7}  // Slightly faster rotation
+          // Removed autoRotate
         />
         <Ball imgUrl={icon} />
       </Suspense>
