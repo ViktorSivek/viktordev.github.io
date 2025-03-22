@@ -24,21 +24,31 @@ const Ball = ({ imgUrl }: { imgUrl: string }) => {
   const [decal] = useTexture([imgUrl])
 
   return (
-    <Float speed={1.75} rotationIntensity={1} floatIntensity={2}>
-      <ambientLight intensity={0.25} />
-      <directionalLight position={[0, 0, 0.05]} />
-      <mesh castShadow receiveShadow scale={2.75}>
-        <icosahedronGeometry args={[1, 1]} />
+    <Float speed={1.5} rotationIntensity={1.2} floatIntensity={1.8}>
+      <ambientLight intensity={0.15} />
+      <spotLight 
+        position={[10, 10, 10]} 
+        angle={0.15} 
+        penumbra={1} 
+        intensity={0.5} 
+        castShadow 
+      />
+      <pointLight position={[-10, -10, -10]} intensity={0.2} color="#8b5cf6" />
+      <mesh castShadow receiveShadow scale={2.5}>
+        <dodecahedronGeometry args={[1, 2]} />
         <meshStandardMaterial
-          color="#fff8eb"
+          color="#2d1b69"
+          metalness={0.7}
+          roughness={0.2}
+          emissive="#3b0764"
+          emissiveIntensity={0.2}
           polygonOffset
           polygonOffsetFactor={-5}
-          flatShading
         />
         <Decal
           position={[0, 0, 1]}
           rotation={[2 * Math.PI, 0, 6.25]}
-          scale={1}
+          scale={1.2}
           map={decal}
         />
       </mesh>
@@ -48,9 +58,18 @@ const Ball = ({ imgUrl }: { imgUrl: string }) => {
 
 export const TechBall = ({ icon }: { icon: string }) => {
   return (
-    <Canvas dpr={[1, 2]} gl={{ preserveDrawingBuffer: true }}>
+    <Canvas 
+      dpr={[1, 2]} 
+      gl={{ preserveDrawingBuffer: true }}
+      camera={{ position: [0, 0, 5], fov: 45 }}
+    >
       <Suspense fallback={<CanvasLoader />}>
-        <OrbitControls enableZoom={false} />
+        <OrbitControls 
+          enableZoom={false} 
+          enablePan={false}
+          autoRotate
+          autoRotateSpeed={0.5}
+        />
         <Ball imgUrl={icon} />
       </Suspense>
       <Preload all />
