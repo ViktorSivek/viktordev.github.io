@@ -20,7 +20,7 @@ const AboutSection = () => {
         transition={{ duration: 0.8 }}
         className="max-w-3xl mx-auto text-center"
       >
-        <p className="text-white text-lg leading-relaxed mb-6">
+        <p className="text-white text-lg md:text-xl lg:text-xl 2k:text-2xl 4k:text-3xl leading-relaxed mb-6">
           I'm a developer passionate about full-stack projects, data analytics, and AI/ML. 
           Working primarily in Python and JavaScript, I build robust applications, automate 
           workflows, and create AI-driven solutions. As an AI enthusiast, I leverage 
