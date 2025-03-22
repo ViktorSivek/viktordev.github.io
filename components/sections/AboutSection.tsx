@@ -1,36 +1,57 @@
 'use client'
 
+import { motion } from 'framer-motion'
 import { SectionHeader } from '@/components/ui/SectionHeader'
 import { Section } from '@/components/ui/Section'
+import { TechBall } from '@/components/ui/TechBall'
+import { technologies } from '@/data/technologies'
+import { cn } from '@/lib/utils'
+import { FaDownload } from 'react-icons/fa6'
+import MagicButton from '@/components/ui/MagicButton'
 
 const AboutSection = () => {
   return (
     <Section id="about">
       <SectionHeader subtitle="Introduction" title="About Me" />
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-        <div className="text-white/80">
-          <p className="text-lg mb-4">
-            Hello! I'm Viktor, a passionate developer with a love for creating beautiful, functional web experiences.
-          </p>
-          <p className="text-lg mb-4">
-            With expertise in modern frontend technologies like React, Next.js, and Three.js, I build applications that are not only visually stunning but also performant and accessible.
-          </p>
-          <p className="text-lg">
-            My approach combines technical excellence with creative problem-solving, ensuring that every project I work on exceeds expectations and delivers real value.
-          </p>
+
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8 }}
+        className="max-w-3xl md:max-w-3xl lg:max-w-4xl 2k:max-w-5xl 4k:max-w-6xl mx-auto text-center"
+      >
+        <p className="text-white text-lg md:text-xl lg:text-xl 2k:text-2xl 4k:text-3xl leading-relaxed mb-6">
+          I'm a developer passionate about full-stack projects, data analytics, and AI/ML. 
+          Working primarily in Python and JavaScript, I build robust applications, automate 
+          workflows, and create AI-driven solutions. As an AI enthusiast, I leverage 
+          cutting-edge technologies to boost productivity. I'm also comfortable with Linux 
+          and cloud platforms. Always ready to solve problems and deliver user-friendly 
+          solutions. Let's team up and bring your ideas to life!
+        </p>
+
+        <motion.div
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          transition={{ delay: 0.3, duration: 0.5 }}
+          className="flex justify-center"
+        >
+          <MagicButton
+            title="Download CV"
+            icon={<FaDownload />}
+            position="right"
+            href="/cv/CV_ViktorSívek.pdf"
+            download={true}
+          />
+        </motion.div>
+
+        <div className="flex flex-row flex-wrap justify-center gap-10 mt-12">
+          {technologies.map((technology) => (
+            <div className="w-24 h-24" key={technology.name}>
+              <TechBall icon={technology.icon} />
+            </div>
+          ))}
         </div>
-        <div className="text-white/80">
-          <p className="text-lg mb-4">
-            When I'm not coding, you can find me exploring new technologies, contributing to open-source projects, or sharing my knowledge with the developer community.
-          </p>
-          <p className="text-lg mb-4">
-            I believe in continuous learning and staying at the forefront of web development trends to deliver cutting-edge solutions for my clients.
-          </p>
-          <p className="text-lg">
-            Let's work together to bring your ideas to life with clean code and exceptional user experiences!
-          </p>
-        </div>
-      </div>
+      </motion.div>
     </Section>
   )
 }
