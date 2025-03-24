@@ -2,7 +2,9 @@
 
 import { Suspense, useRef, useState } from 'react'
 import { Canvas, useFrame } from '@react-three/fiber'
+import { EffectComposer, Bloom } from '@react-three/postprocessing'
 import {
+  Environment,
   Decal,
   Float,
   OrbitControls,
@@ -75,42 +77,36 @@ function Ball({ imgUrl }: { imgUrl: string }) {
   useFrame((state) => {
     if (!meshRef.current) return
     const t = state.clock.elapsedTime
+    // Idle rotation
     meshRef.current.rotation.y = 0.35 * Math.sin(t)
     meshRef.current.rotation.x = 0.2 * Math.sin(t * 0.5)
   })
 
   return (
-    <Float speed={1} rotationIntensity={0.3} floatIntensity={0.3}>
-      <ambientLight intensity={0.25} />
-      <spotLight
-        position={[10, 10, 10]}
-        angle={0.15}
-        penumbra={1}
-        intensity={0.8}
-        castShadow
-      />
-      <pointLight position={[-10, -10, -10]} intensity={0.5} color="#CBACF9" />
+    <>
+      {/* The environment adds reflections */}
+      <Environment preset="night" />
 
-      <mesh ref={meshRef} castShadow receiveShadow scale={1.25}>
-        <dodecahedronGeometry args={[1, 2]} />
-        <meshStandardMaterial
-          // Ball color set to RGB(128,0,128)
-          color="#9E009E"
-          metalness={0.8}
-          roughness={0.2}
-          emissive="#9E009E"
-          emissiveIntensity={0.3}
-          polygonOffset
-          polygonOffsetFactor={-5}
-        />
-        <Decal
-          position={[0, 0, 1]}
-          rotation={[2 * Math.PI, 0, 6.25]}
-          scale={1.2}
-          map={decal}
-        />
-      </mesh>
-    </Float>
+      <Float speed={1} rotationIntensity={0.3} floatIntensity={0.3}>
+        <mesh ref={meshRef} castShadow receiveShadow scale={1.25}>
+          <icosahedronGeometry args={[1, 4]} />
+          <meshPhysicalMaterial
+            color="#800080" // Purple base color
+            metalness={1} // High metalness for strong reflection
+            roughness={0.05} // Lower roughness => sharper reflections
+            clearcoat={1} // Clearcoat for extra shine
+            clearcoatRoughness={0}
+            envMapIntensity={2} // Boost environment reflection
+          />
+          <Decal
+            position={[0, 0, 1]}
+            rotation={[2 * Math.PI, 0, 6.25]}
+            scale={1.2}
+            map={decal}
+          />
+        </mesh>
+      </Float>
+    </>
   )
 }
 
