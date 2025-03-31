@@ -53,7 +53,7 @@ export const timelineExperiences: TimelineExperience[] = [
   {
     title: 'Frontend Engineer Intern',
     company_name: 'Tech Startup',
-    icon: '/exp1.svg',
+    icon: '/companies/vse.png',
     iconBg: '#383E56',
     date: 'March 2020 - April 2021',
     points: [
@@ -65,7 +65,7 @@ export const timelineExperiences: TimelineExperience[] = [
   {
     title: 'Mobile App Developer',
     company_name: 'JSM Tech',
-    icon: '/exp2.svg',
+    icon: '/companies/pwc.png',
     iconBg: '#E6DEDD',
     date: 'Jan 2021 - Feb 2022',
     points: [
@@ -78,7 +78,7 @@ export const timelineExperiences: TimelineExperience[] = [
   {
     title: 'Freelance App Developer',
     company_name: 'Self-employed',
-    icon: '/exp3.svg',
+    icon: '/companies/vse.png',
     iconBg: '#383E56',
     date: 'Jan 2022 - Jan 2023',
     points: [
@@ -91,7 +91,7 @@ export const timelineExperiences: TimelineExperience[] = [
   {
     title: 'Lead Frontend Developer',
     company_name: 'Tech Corporation',
-    icon: '/exp4.svg',
+    icon: '/companies/rb.png',
     iconBg: '#E6DEDD',
     date: 'Jan 2023 - Present',
     points: [
