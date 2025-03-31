@@ -201,6 +201,60 @@ export const workExperience = [
   },
 ]
 
+export const timelineExperiences = [
+  {
+    title: "Frontend Engineer Intern",
+    company_name: "Tech Startup",
+    icon: "/exp1.svg",
+    iconBg: "#383E56",
+    date: "March 2020 - April 2021",
+    points: [
+      "Assisted in the development of a web-based platform using React.js, enhancing interactivity.",
+      "Collaborated with cross-functional teams to implement responsive design principles.",
+      "Participated in code reviews and provided constructive feedback to other developers.",
+    ],
+  },
+  {
+    title: "Mobile App Developer",
+    company_name: "JSM Tech",
+    icon: "/exp2.svg",
+    iconBg: "#E6DEDD",
+    date: "Jan 2021 - Feb 2022",
+    points: [
+      "Designed and developed mobile apps for both iOS & Android platforms using React Native.",
+      "Implemented user authentication and data synchronization features.",
+      "Optimized app performance and reduced load times by 40%.",
+      "Participated in client meetings to gather requirements and provide technical insights.",
+    ],
+  },
+  {
+    title: "Freelance App Developer",
+    company_name: "Self-employed",
+    icon: "/exp3.svg",
+    iconBg: "#383E56",
+    date: "Jan 2022 - Jan 2023",
+    points: [
+      "Led the development of a mobile app for a client, from initial concept to deployment on app stores.",
+      "Managed project timelines and client expectations independently.",
+      "Implemented complex features including real-time data synchronization and offline functionality.",
+      "Provided ongoing maintenance and support after launch.",
+    ],
+  },
+  {
+    title: "Lead Frontend Developer",
+    company_name: "Tech Corporation",
+    icon: "/exp4.svg",
+    iconBg: "#E6DEDD",
+    date: "Jan 2023 - Present",
+    points: [
+      "Developed and maintained user-facing features using modern frontend technologies.",
+      "Led a team of 5 developers, providing mentorship and technical guidance.",
+      "Implemented CI/CD pipelines to streamline the development process.",
+      "Collaborated with designers to ensure pixel-perfect implementation of UI designs.",
+    ],
+  },
+]
+
 export const socialMedia = [
   {
     id: 1,
