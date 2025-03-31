@@ -10,7 +10,22 @@ import {
 } from 'react-vertical-timeline-component'
 import 'react-vertical-timeline-component/style.min.css'
 
-const ExperienceCard = ({ experience }) => {
+// Define the Experience type
+interface Experience {
+  title: string;
+  company_name: string;
+  icon: string;
+  iconBg: string;
+  date: string;
+  points: string[];
+}
+
+// Type the ExperienceCard props
+interface ExperienceCardProps {
+  experience: Experience;
+}
+
+const ExperienceCard = ({ experience }: ExperienceCardProps) => {
   return (
     <VerticalTimelineElement
       contentStyle={{
@@ -46,7 +61,7 @@ const ExperienceCard = ({ experience }) => {
       </div>
 
       <ul className='mt-5 list-disc ml-5 space-y-2'>
-        {experience.points.map((point, index) => (
+        {experience.points.map((point: string, index: number) => (
           <li
             key={`experience-point-${index}`}
             className='text-gray-300 text-[14px] pl-1 tracking-wider'

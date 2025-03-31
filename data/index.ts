@@ -201,7 +201,16 @@ export const workExperience = [
   },
 ]
 
-export const timelineExperiences = [
+export interface TimelineExperience {
+  title: string;
+  company_name: string;
+  icon: string;
+  iconBg: string;
+  date: string;
+  points: string[];
+}
+
+export const timelineExperiences: TimelineExperience[] = [
   {
     title: "Frontend Engineer Intern",
     company_name: "Tech Startup",
