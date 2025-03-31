@@ -85,7 +85,7 @@ function Ball({ imgUrl }: { imgUrl: string }) {
   return (
     <>
       {/* The environment adds reflections */}
-      <Environment preset="night" />
+      <Environment preset="studio" />
 
       <Float speed={1} rotationIntensity={0.3} floatIntensity={0.3}>
         <mesh ref={meshRef} castShadow receiveShadow scale={1.25}>

@@ -29,7 +29,7 @@ const AboutSection = () => {
           solutions. Let&apos;s team up and bring your ideas to life!
         </p>
 
-        <motion.div
+        {/* <motion.div
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           transition={{ delay: 0.3, duration: 0.5 }}
@@ -42,7 +42,7 @@ const AboutSection = () => {
             href="/cv/CV_ViktorSívek.pdf"
             download={true}
           />
-        </motion.div>
+        </motion.div> */}
 
         <div className="flex flex-row flex-wrap justify-center gap-10 mt-12">
           {technologies.map((technology) => (
