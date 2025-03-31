@@ -1,7 +1,10 @@
 import { navItems } from '@/data'
-import Grid from '@/components/Grid'
 import Hero from '@/components/Hero'
 import { FloatingNav } from '@/components/ui/FloatingNavbar'
+import AboutSection from '@/components/sections/AboutSection'
+import ProjectsSection from '@/components/sections/ProjectsSection'
+import ExperienceSection from '@/components/sections/ExperienceSection'
+import ContactSection from '@/components/sections/ContactSection'
 
 export default function Home() {
   return (
@@ -9,7 +12,10 @@ export default function Home() {
       <div className="container w-full mx-auto px-5 sm:px-10">
         <FloatingNav navItems={navItems} />
         <Hero />
-        <Grid />
+        <AboutSection />
+        <ExperienceSection />
+        <ProjectsSection />
+        <ContactSection />
       </div>
     </main>
   )
