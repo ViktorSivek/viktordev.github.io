@@ -1,217 +1,70 @@
 export const navItems = [
   { name: 'About', link: '#about' },
-  { name: 'Experience', link: '#experience' },
+  { name: 'Experiences', link: '#experience' },
   { name: 'Projects', link: '#projects' },
   { name: 'Contact', link: '#contact' },
 ]
 
-export const gridItems = [
-  {
-    id: 1,
-    title: 'I prioritize client collaboration, fostering open communication ',
-    description: '',
-    className: 'lg:col-span-3 md:col-span-6 md:row-span-4 lg:min-h-[60vh]',
-    imgClassName: 'w-full h-full',
-    titleClassName: 'justify-end',
-    img: '/b1.svg',
-    spareImg: '',
-  },
-  {
-    id: 2,
-    title: "I'm very flexible with time zone communications",
-    description: '',
-    className: 'lg:col-span-2 md:col-span-3 md:row-span-2',
-    imgClassName: '',
-    titleClassName: 'justify-start',
-    img: '',
-    spareImg: '',
-  },
-  {
-    id: 3,
-    title: 'My tech stack',
-    description: 'I constantly try to improve',
-    className: 'lg:col-span-2 md:col-span-3 md:row-span-2',
-    imgClassName: '',
-    titleClassName: 'justify-center',
-    img: '',
-    spareImg: '',
-  },
-  {
-    id: 4,
-    title: 'Tech enthusiast with a passion for development.',
-    description: '',
-    className: 'lg:col-span-2 md:col-span-3 md:row-span-1',
-    imgClassName: '',
-    titleClassName: 'justify-start',
-    img: '/grid.svg',
-    spareImg: '/b4.svg',
-  },
+export interface TimelineExperience {
+  title: string
+  company_name: string
+  icon: string
+  iconBg: string
+  date: string
+  points: string[]
+}
 
+export const timelineExperiences: TimelineExperience[] = [
   {
-    id: 5,
-    title: 'Currently building a JS Animation library',
-    description: 'The Inside Scoop',
-    className: 'md:col-span-3 md:row-span-2',
-    imgClassName: 'absolute right-0 bottom-0 md:w-96 w-60',
-    titleClassName: 'justify-center md:justify-start lg:justify-center',
-    img: '/b5.svg',
-    spareImg: '/grid.svg',
+    title: 'BSc in Applied Informatics',
+    company_name: 'University of Economics, Prague (VŠE)',
+    icon: '/companies/vse.png',
+    iconBg: '#383E56',
+    date: '2020 - 2023',
+    points: [
+      'Focus on software development, data analysis, and business IT.',
+      'Experience with Python. Java, databases, web apps, and team projects.',
+      'Combined tech skills with management and real-world case studies.',
+      'Bachelor’s Thesis: Data Analysis of the Czech Real Estate Market scraping, analysis, visualization, and ML.',
+    ],
   },
   {
-    id: 6,
-    title: 'Do you want to start a project together?',
-    description: '',
-    className: 'lg:col-span-2 md:col-span-3 md:row-span-1',
-    imgClassName: '',
-    titleClassName: 'justify-center md:max-w-full max-w-60 text-center',
-    img: '',
-    spareImg: '',
-  },
-]
-
-export const projects = [
-  {
-    id: 1,
-    title: '3D Solar System Planets to Explore',
-    des: 'Explore the wonders of our solar system with this captivating 3D simulation of the planets using Three.js.',
-    img: '/p1.svg',
-    iconLists: ['/re.svg', '/tail.svg', '/ts.svg', '/three.svg', '/fm.svg'],
-    link: '/ui.earth.com',
+    title: 'Cybersecurity Solutions Developer',
+    company_name: 'PricewaterhouseCoopers',
+    icon: '/companies/pwc.png',
+    iconBg: '#E6DEDD',
+    date: '2023 - 2024',
+    points: [
+      'Built a full-stack web app from concept to deployment.',
+      'Integrated Microsoft Sentinel and Tanium for cybersecurity insights.',
+      'Optimized app performance and reduced load times by 40%.',
+      'Used Django, Python, React, Docker, and MS Azure.',
+    ],
   },
   {
-    id: 2,
-    title: 'Yoom - Video Conferencing App',
-    des: 'Simplify your video conferencing experience with Yoom. Seamlessly connect with colleagues and friends.',
-    img: '/p2.svg',
-    iconLists: ['/next.svg', '/tail.svg', '/ts.svg', '/stream.svg', '/c.svg'],
-    link: '/ui.yoom.com',
+    title: 'MSc in Data and Analytics for Business',
+    company_name: 'University of Economics, Prague (VŠE)',
+    icon: '/companies/vse.png',
+    iconBg: '#383E56',
+    date: '2023 - current',
+    points: [
+      'Focused on data analysis, business intelligence, AI, and ML.',
+      'Worked with SQL, Python, Power BI, Tableau, Jupyter, and Go.',
+      'Team project with Raiffeisenbank – solution design and presentation.',
+      'School partnered with KPMG, Škoda Auto, ČSOB – courses led by industry experts.',
+    ],
   },
   {
-    id: 3,
-    title: 'AI Image SaaS - Canva Application',
-    des: 'A REAL Software-as-a-Service app with AI features and a payments and credits system using the latest tech stack.',
-    img: '/p3.svg',
-    iconLists: ['/re.svg', '/tail.svg', '/ts.svg', '/three.svg', '/c.svg'],
-    link: '/ui.aiimg.com',
-  },
-  {
-    id: 4,
-    title: 'Animated Apple Iphone 3D Website',
-    des: 'Recreated the Apple iPhone 15 Pro website, combining GSAP animations and Three.js 3D effects..',
-    img: '/p4.svg',
-    iconLists: ['/next.svg', '/tail.svg', '/ts.svg', '/three.svg', '/gsap.svg'],
-    link: '/ui.apple.com',
-  },
-]
-
-export const testimonials = [
-  {
-    quote:
-      "Collaborating with Adrian was an absolute pleasure. His professionalism, promptness, and dedication to delivering exceptional results were evident throughout our project. Adrian's enthusiasm for every facet of development truly stands out. If you're seeking to elevate your website and elevate your brand, Adrian is the ideal partner.",
-    name: 'Michael Johnson',
-    title: 'Director of AlphaStream Technologies',
-  },
-  {
-    quote:
-      "Collaborating with Adrian was an absolute pleasure. His professionalism, promptness, and dedication to delivering exceptional results were evident throughout our project. Adrian's enthusiasm for every facet of development truly stands out. If you're seeking to elevate your website and elevate your brand, Adrian is the ideal partner.",
-    name: 'Michael Johnson',
-    title: 'Director of AlphaStream Technologies',
-  },
-  {
-    quote:
-      "Collaborating with Adrian was an absolute pleasure. His professionalism, promptness, and dedication to delivering exceptional results were evident throughout our project. Adrian's enthusiasm for every facet of development truly stands out. If you're seeking to elevate your website and elevate your brand, Adrian is the ideal partner.",
-    name: 'Michael Johnson',
-    title: 'Director of AlphaStream Technologies',
-  },
-  {
-    quote:
-      "Collaborating with Adrian was an absolute pleasure. His professionalism, promptness, and dedication to delivering exceptional results were evident throughout our project. Adrian's enthusiasm for every facet of development truly stands out. If you're seeking to elevate your website and elevate your brand, Adrian is the ideal partner.",
-    name: 'Michael Johnson',
-    title: 'Director of AlphaStream Technologies',
-  },
-  {
-    quote:
-      "Collaborating with Adrian was an absolute pleasure. His professionalism, promptness, and dedication to delivering exceptional results were evident throughout our project. Adrian's enthusiasm for every facet of development truly stands out. If you're seeking to elevate your website and elevate your brand, Adrian is the ideal partner.",
-    name: 'Michael Johnson',
-    title: 'Director of AlphaStream Technologies',
-  },
-]
-
-export const companies = [
-  {
-    id: 1,
-    name: 'cloudinary',
-    img: '/cloud.svg',
-    nameImg: '/cloudName.svg',
-  },
-  {
-    id: 2,
-    name: 'appwrite',
-    img: '/app.svg',
-    nameImg: '/appName.svg',
-  },
-  {
-    id: 3,
-    name: 'HOSTINGER',
-    img: '/host.svg',
-    nameImg: '/hostName.svg',
-  },
-  {
-    id: 4,
-    name: 'stream',
-    img: '/s.svg',
-    nameImg: '/streamName.svg',
-  },
-  {
-    id: 5,
-    name: 'docker.',
-    img: '/dock.svg',
-    nameImg: '/dockerName.svg',
-  },
-]
-
-export const workExperience = [
-  {
-    id: 1,
-    title: 'Frontend Engineer Intern',
-    desc: 'Assisted in the development of a web-based platform using React.js, enhancing interactivity.',
-    className: 'md:col-span-2',
-    thumbnail: '/exp1.svg',
-  },
-  {
-    id: 2,
-    title: 'Mobile App Dev - JSM Tech',
-    desc: 'Designed and developed mobile app for both iOS & Android platforms using React Native.',
-    className: 'md:col-span-2', // change to md:col-span-2
-    thumbnail: '/exp2.svg',
-  },
-  {
-    id: 3,
-    title: 'Freelance App Dev Project',
-    desc: 'Led the dev of a mobile app for a client, from initial concept to deployment on app stores.',
-    className: 'md:col-span-2', // change to md:col-span-2
-    thumbnail: '/exp3.svg',
-  },
-  {
-    id: 4,
-    title: 'Lead Frontend Developer',
-    desc: 'Developed and maintained user-facing features using modern frontend technologies.',
-    className: 'md:col-span-2',
-    thumbnail: '/exp4.svg',
-  },
-]
-
-export const socialMedia = [
-  {
-    id: 1,
-    img: '/git.svg',
-  },
-  {
-    id: 2,
-    img: '/twit.svg',
-  },
-  {
-    id: 3,
-    img: '/link.svg',
+    title: 'AI Engineer',
+    company_name: 'Raiffeisenbank',
+    icon: '/companies/rb.png',
+    iconBg: '#E6DEDD',
+    date: '2024 - current',
+    points: [
+      'Built end-to-end AI automation for audio processing and NLP tasks.',
+      'Fine-tuned and evaluated AI models for improved performance.',
+      'Deployed solutions on AWS using Docker in private cloud setup.',
+      'Worked with Python, Hugging Face, AWS, and Linux.',
+    ],
   },
 ]
