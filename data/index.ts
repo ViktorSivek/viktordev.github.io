@@ -1,43 +1,8 @@
 export const navItems = [
   { name: 'About', link: '#about' },
-  { name: 'Experience', link: '#experience' },
+  { name: 'Experiences', link: '#experience' },
   { name: 'Projects', link: '#projects' },
   { name: 'Contact', link: '#contact' },
-]
-
-export const projects = [
-  {
-    id: 1,
-    title: '3D Solar System Planets to Explore',
-    des: 'Explore the wonders of our solar system with this captivating 3D simulation of the planets using Three.js.',
-    img: '/p1.svg',
-    iconLists: ['/re.svg', '/tail.svg', '/ts.svg', '/three.svg', '/fm.svg'],
-    link: '/ui.earth.com',
-  },
-  {
-    id: 2,
-    title: 'Yoom - Video Conferencing App',
-    des: 'Simplify your video conferencing experience with Yoom. Seamlessly connect with colleagues and friends.',
-    img: '/p2.svg',
-    iconLists: ['/next.svg', '/tail.svg', '/ts.svg', '/stream.svg', '/c.svg'],
-    link: '/ui.yoom.com',
-  },
-  {
-    id: 3,
-    title: 'AI Image SaaS - Canva Application',
-    des: 'A REAL Software-as-a-Service app with AI features and a payments and credits system using the latest tech stack.',
-    img: '/p3.svg',
-    iconLists: ['/re.svg', '/tail.svg', '/ts.svg', '/three.svg', '/c.svg'],
-    link: '/ui.aiimg.com',
-  },
-  {
-    id: 4,
-    title: 'Animated Apple Iphone 3D Website',
-    des: 'Recreated the Apple iPhone 15 Pro website, combining GSAP animations and Three.js 3D effects..',
-    img: '/p4.svg',
-    iconLists: ['/next.svg', '/tail.svg', '/ts.svg', '/three.svg', '/gsap.svg'],
-    link: '/ui.apple.com',
-  },
 ]
 
 export interface TimelineExperience {
@@ -51,69 +16,55 @@ export interface TimelineExperience {
 
 export const timelineExperiences: TimelineExperience[] = [
   {
-    title: 'Frontend Engineer Intern',
-    company_name: 'Tech Startup',
+    title: 'BSc in Applied Informatics',
+    company_name: 'University of Economics, Prague (VŠE)',
     icon: '/companies/vse.png',
     iconBg: '#383E56',
-    date: 'March 2020 - April 2021',
+    date: '2020 - 2023',
     points: [
-      'Assisted in the development of a web-based platform using React.js, enhancing interactivity.',
-      'Collaborated with cross-functional teams to implement responsive design principles.',
-      'Participated in code reviews and provided constructive feedback to other developers.',
+      'Focus on software development, data analysis, and business IT.',
+      'Experience with Python. Java, databases, web apps, and team projects.',
+      'Combined tech skills with management and real-world case studies.',
+      'Bachelor’s Thesis: Data Analysis of the Czech Real Estate Market scraping, analysis, visualization, and ML.',
     ],
   },
   {
-    title: 'Mobile App Developer',
-    company_name: 'JSM Tech',
+    title: 'Cybersecurity Solutions Developer',
+    company_name: 'PricewaterhouseCoopers',
     icon: '/companies/pwc.png',
     iconBg: '#E6DEDD',
-    date: 'Jan 2021 - Feb 2022',
+    date: '2023 - 2024',
     points: [
-      'Designed and developed mobile apps for both iOS & Android platforms using React Native.',
-      'Implemented user authentication and data synchronization features.',
+      'Built a full-stack web app from concept to deployment.',
+      'Integrated Microsoft Sentinel and Tanium for cybersecurity insights.',
       'Optimized app performance and reduced load times by 40%.',
-      'Participated in client meetings to gather requirements and provide technical insights.',
+      'Used Django, Python, React, Docker, and MS Azure.',
     ],
   },
   {
-    title: 'Freelance App Developer',
-    company_name: 'Self-employed',
+    title: 'MSc in Data and Analytics for Business',
+    company_name: 'University of Economics, Prague (VŠE)',
     icon: '/companies/vse.png',
     iconBg: '#383E56',
-    date: 'Jan 2022 - Jan 2023',
+    date: '2023 - current',
     points: [
-      'Led the development of a mobile app for a client, from initial concept to deployment on app stores.',
-      'Managed project timelines and client expectations independently.',
-      'Implemented complex features including real-time data synchronization and offline functionality.',
-      'Provided ongoing maintenance and support after launch.',
+      'Focused on data analysis, business intelligence, AI, and ML.',
+      'Worked with SQL, Python, Power BI, Tableau, Jupyter, and Go.',
+      'Team project with Raiffeisenbank – solution design and presentation.',
+      'School partnered with KPMG, Škoda Auto, ČSOB – courses led by industry experts.',
     ],
   },
   {
-    title: 'Lead Frontend Developer',
-    company_name: 'Tech Corporation',
+    title: 'AI Engineer',
+    company_name: 'Raiffeisenbank',
     icon: '/companies/rb.png',
     iconBg: '#E6DEDD',
-    date: 'Jan 2023 - Present',
+    date: '2024 - current',
     points: [
-      'Developed and maintained user-facing features using modern frontend technologies.',
-      'Led a team of 5 developers, providing mentorship and technical guidance.',
-      'Implemented CI/CD pipelines to streamline the development process.',
-      'Collaborated with designers to ensure pixel-perfect implementation of UI designs.',
+      'Built end-to-end AI automation for audio processing and NLP tasks.',
+      'Fine-tuned and evaluated AI models for improved performance.',
+      'Deployed solutions on AWS using Docker in private cloud setup.',
+      'Worked with Python, Hugging Face, AWS, and Linux.',
     ],
-  },
-]
-
-export const socialMedia = [
-  {
-    id: 1,
-    img: '/git.svg',
-  },
-  {
-    id: 2,
-    img: '/twit.svg',
-  },
-  {
-    id: 3,
-    img: '/link.svg',
   },
 ]
