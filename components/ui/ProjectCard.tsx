@@ -1,7 +1,6 @@
 'use client'
 
 import { motion } from 'framer-motion'
-import { useInView } from 'framer-motion'
 import Image from 'next/image'
 import { Project } from '@/data'
 import { cn } from '@/lib/utils'
@@ -14,14 +13,14 @@ interface ProjectCardProps {
 
 export const ProjectCard = ({ project, index }: ProjectCardProps) => {
   return (
-    <motion.div
-      className="group"
-      initial={{ opacity: 0, y: 50 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true }}
-      transition={{ duration: 0.5, delay: index * 0.1 }}
-    >
-      <div className="relative bg-black/50 backdrop-blur-sm border border-white/10 p-5 rounded-2xl w-full h-auto min-h-[550px] max-h-[650px] flex flex-col overflow-hidden transition-all duration-300 hover:shadow-xl hover:shadow-purple-500/10 hover:border-purple-500/20">
+    <div className="group">
+      <motion.div
+        initial={{ opacity: 0, y: 50 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.5, delay: index * 0.1 }}
+        className="relative bg-black/50 backdrop-blur-sm border border-white/10 p-5 rounded-2xl w-full h-auto min-h-[550px] max-h-[650px] flex flex-col overflow-hidden transition-all duration-300 hover:shadow-xl hover:shadow-purple-500/10 hover:border-purple-500/20"
+      >
         <div className="relative w-full aspect-video overflow-hidden rounded-xl">
           <Image
             src={project.image}
@@ -75,7 +74,7 @@ export const ProjectCard = ({ project, index }: ProjectCardProps) => {
             <span>Code</span>
           </a>
         </div>
-      </div>
-    </motion.div>
+      </motion.div>
+    </div>
   )
 }
