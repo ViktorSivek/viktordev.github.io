@@ -5,6 +5,47 @@ export const navItems = [
   { name: 'Contact', link: '#contact' },
 ]
 
+export interface Project {
+  name: string;
+  description: string;
+  tags: {
+    name: string;
+    color: string;
+  }[];
+  image: string;
+  source_code_link: string;
+  demo_link: string;
+  user?: string;
+  password?: string;
+}
+
+export const projects: Project[] = [
+  {
+    name: "Project 1",
+    description: "A web application that demonstrates modern frontend techniques with React and TypeScript.",
+    tags: [
+      {
+        name: "react",
+        color: "text-blue-500",
+      },
+      {
+        name: "typescript",
+        color: "text-blue-300",
+      },
+      {
+        name: "tailwind",
+        color: "text-cyan-400",
+      },
+    ],
+    image: "/projects/project1.png",
+    source_code_link: "https://github.com/yourusername/project1",
+    demo_link: "https://project1-demo.com",
+    user: "demo_user",
+    password: "demo_pass",
+  },
+  // Add more projects as needed
+];
+
 export interface TimelineExperience {
   title: string
   company_name: string
