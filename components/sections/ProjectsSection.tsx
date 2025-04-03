@@ -24,11 +24,15 @@ const ProjectsSection = () => {
 
       <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-6 mt-10 max-w-6xl mx-auto px-4">
         {projects.map((project, index) => (
-          <ProjectCard 
-            key={`project-${index}`} 
-            project={project} 
-            index={index} 
-          />
+          <motion.div
+            key={`project-${index}`}
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5, delay: index * 0.1 }}
+          >
+            <ProjectCard project={project} index={index} />
+          </motion.div>
         ))}
       </div>
     </Section>
