@@ -19,7 +19,7 @@ export const ProjectCard = ({ project, index }: ProjectCardProps) => {
       transition={{ duration: 0.5, delay: index * 0.1 }}
       className="group"
     >
-      <div className="relative bg-black/50 backdrop-blur-sm border border-white/10 p-5 rounded-2xl w-full h-full overflow-hidden transition-all duration-300 hover:shadow-xl hover:shadow-purple-500/10 hover:border-purple-500/20">
+      <div className="relative bg-black/50 backdrop-blur-sm border border-white/10 p-5 rounded-2xl w-full h-[550px] overflow-hidden transition-all duration-300 hover:shadow-xl hover:shadow-purple-500/10 hover:border-purple-500/20">
         <div className="relative w-full h-[200px] overflow-hidden rounded-xl">
           <Image
             src={project.image}
