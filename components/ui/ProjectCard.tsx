@@ -19,7 +19,7 @@ export const ProjectCard = ({ project, index }: ProjectCardProps) => {
       transition={{ duration: 0.5, delay: index * 0.1 }}
       className="group"
     >
-      <div className="relative bg-black/50 backdrop-blur-sm border border-white/10 p-5 rounded-2xl w-full h-[580px] overflow-hidden transition-all duration-300 hover:shadow-xl hover:shadow-purple-500/10 hover:border-purple-500/20">
+      <div className="relative bg-black/50 backdrop-blur-sm border border-white/10 p-5 rounded-2xl w-full h-[650px] overflow-hidden transition-all duration-300 hover:shadow-xl hover:shadow-purple-500/10 hover:border-purple-500/20">
         <div className="relative w-full h-[230px] overflow-hidden rounded-xl">
           <Image
             src={project.image}
@@ -54,7 +54,7 @@ export const ProjectCard = ({ project, index }: ProjectCardProps) => {
           ))}
         </div>
 
-        <div className="flex justify-between mt-8 px-8">
+        <div className="absolute bottom-8 left-0 right-0 flex justify-between px-12">
           <a
             href={project.demo_link}
             target="_blank"
