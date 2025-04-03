@@ -22,7 +22,7 @@ const ProjectsSection = () => {
         </p>
       </motion.div>
 
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-10 max-w-6xl mx-auto">
+      <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-6 mt-10 max-w-6xl mx-auto px-4">
         {projects.map((project, index) => (
           <ProjectCard 
             key={`project-${index}`} 

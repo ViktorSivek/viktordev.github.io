@@ -19,8 +19,8 @@ export const ProjectCard = ({ project, index }: ProjectCardProps) => {
       transition={{ duration: 0.5, delay: index * 0.1 }}
       className="group"
     >
-      <div className="relative bg-black/50 backdrop-blur-sm border border-white/10 p-5 rounded-2xl w-full h-[650px] overflow-hidden transition-all duration-300 hover:shadow-xl hover:shadow-purple-500/10 hover:border-purple-500/20">
-        <div className="relative w-full h-[230px] overflow-hidden rounded-xl">
+      <div className="relative bg-black/50 backdrop-blur-sm border border-white/10 p-5 rounded-2xl w-full h-auto min-h-[550px] max-h-[650px] flex flex-col overflow-hidden transition-all duration-300 hover:shadow-xl hover:shadow-purple-500/10 hover:border-purple-500/20">
+        <div className="relative w-full aspect-video overflow-hidden rounded-xl">
           <Image
             src={project.image}
             alt={project.name}
@@ -29,21 +29,20 @@ export const ProjectCard = ({ project, index }: ProjectCardProps) => {
           />
         </div>
 
-        <div className="mt-5">
-          <h3 className="text-white font-bold text-2xl">{project.name}</h3>
-          <p className="mt-2 text-gray-300 text-base">{project.description}</p>
+        <div className="mt-5 flex-1 flex flex-col">
+          <h3 className="text-white font-bold text-xl md:text-2xl">{project.name}</h3>
+          <p className="mt-2 text-gray-300 text-sm md:text-base">{project.description}</p>
           
           {project.user && project.user !== "-" && (
             <div className="mt-4 space-y-1">
-              <p className="text-gray-300 text-base">Demo user: <span className="text-gray-100">{project.user}</span></p>
+              <p className="text-gray-300 text-sm md:text-base">Demo user: <span className="text-gray-100">{project.user}</span></p>
               {project.password && project.password !== "-" && (
-                <p className="text-gray-300 text-base">Demo password: <span className="text-gray-100">{project.password}</span></p>
+                <p className="text-gray-300 text-sm md:text-base">Demo password: <span className="text-gray-100">{project.password}</span></p>
               )}
             </div>
           )}
-        </div>
 
-        <div className="mt-6 flex flex-wrap gap-2">
+          <div className="mt-4 flex flex-wrap gap-2">
           {project.tags.map((tag) => (
             <span
               key={`${project.name}-${tag.name}`}
@@ -54,12 +53,12 @@ export const ProjectCard = ({ project, index }: ProjectCardProps) => {
           ))}
         </div>
 
-        <div className="absolute bottom-8 left-0 right-0 flex justify-between px-12">
+        <div className="mt-auto pt-6 flex flex-col sm:flex-row justify-between gap-4">
           <a
             href={project.demo_link}
             target="_blank"
             rel="noopener noreferrer"
-            className="flex items-center gap-2 bg-gradient-to-r from-purple-600 to-blue-600 text-white py-3 px-8 rounded-md hover:opacity-90 transition-opacity"
+            className="flex-1 flex items-center justify-center gap-2 bg-gradient-to-r from-purple-600 to-blue-600 text-white py-2 px-4 sm:py-3 sm:px-6 rounded-md hover:opacity-90 transition-opacity text-sm sm:text-base"
           >
             <FaExternalLinkAlt size={16} />
             <span>Demo</span>
@@ -68,7 +67,7 @@ export const ProjectCard = ({ project, index }: ProjectCardProps) => {
             href={project.source_code_link}
             target="_blank"
             rel="noopener noreferrer"
-            className="flex items-center gap-2 bg-black/50 border border-white/20 text-white py-3 px-8 rounded-md hover:bg-black/70 transition-colors"
+            className="flex-1 flex items-center justify-center gap-2 bg-black/50 border border-white/20 text-white py-2 px-4 sm:py-3 sm:px-6 rounded-md hover:bg-black/70 transition-colors text-sm sm:text-base"
           >
             <FaCode size={16} />
             <span>Code</span>
