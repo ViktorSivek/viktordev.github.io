@@ -66,6 +66,7 @@ export const ProjectCard = ({ project, index }: ProjectCardProps) => {
             <span>Code</span>
           </a>
         </div>
+      </div>
     </div>
   )
 }
