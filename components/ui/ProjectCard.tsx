@@ -12,8 +12,8 @@ interface ProjectCardProps {
 
 export const ProjectCard = ({ project, index }: ProjectCardProps) => {
   return (
-    <div className="group relative bg-black/50 backdrop-blur-sm border border-white/10 p-5 rounded-2xl w-full h-[700px] flex flex-col overflow-hidden transition-all duration-300 hover:shadow-xl hover:shadow-purple-500/10 hover:border-purple-500/20">
-        <div className="relative w-full h-[350px] overflow-hidden rounded-xl">
+    <div className="group relative bg-black/50 backdrop-blur-sm border border-white/10 p-5 rounded-2xl w-full flex flex-col overflow-hidden transition-all duration-300 hover:shadow-xl hover:shadow-purple-500/10 hover:border-purple-500/20">
+        <div className="relative w-full aspect-video overflow-hidden rounded-xl">
           <Image
             src={project.image}
             alt={project.name}
@@ -35,7 +35,7 @@ export const ProjectCard = ({ project, index }: ProjectCardProps) => {
             </div>
           )}
 
-          <div className="mt-4 flex flex-wrap gap-2 flex-grow">
+          <div className="mt-4 flex flex-wrap gap-2">
           {project.tags.map((tag) => (
             <span
               key={`${project.name}-${tag.name}`}
