@@ -46,7 +46,7 @@ export const ProjectCard = ({ project, index }: ProjectCardProps) => {
           ))}
         </div>
 
-        <div className="pt-6 flex flex-col sm:flex-row justify-between gap-4">
+        <div className="mt-auto pt-6 flex flex-col sm:flex-row justify-between gap-4">
           <a
             href={project.demo_link}
             target="_blank"
