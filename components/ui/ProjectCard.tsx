@@ -12,7 +12,7 @@ interface ProjectCardProps {
 
 export const ProjectCard = ({ project, index }: ProjectCardProps) => {
   return (
-    <div className="group relative bg-black/50 backdrop-blur-sm border border-white/10 p-5 rounded-2xl w-full flex flex-col overflow-hidden transition-all duration-300 hover:shadow-xl hover:shadow-purple-500/10 hover:border-purple-500/20">
+    <div className="group relative bg-black/50 backdrop-blur-sm border border-white/10 p-5 rounded-2xl w-full flex flex-col overflow-hidden transition-all duration-300 hover:shadow-xl hover:shadow-purple-500/10 hover:border-purple-500/20 h-full">
         <div className="relative w-full aspect-video overflow-hidden rounded-xl">
           <Image
             src={project.image}
@@ -22,7 +22,7 @@ export const ProjectCard = ({ project, index }: ProjectCardProps) => {
           />
         </div>
 
-        <div className="mt-5 flex flex-col h-full">
+        <div className="mt-5 flex flex-col flex-grow h-full">
           <h3 className="text-white font-bold text-xl md:text-2xl">{project.name}</h3>
           <p className="mt-2 text-gray-300 text-sm md:text-base">{project.description}</p>
           
