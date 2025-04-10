@@ -10,21 +10,35 @@ interface ProjectCardProps {
   index: number
 }
 
+// Add this helper function above the return statement
+const getTagClasses = (color: string): string => {
+  switch (color) {
+    case 'text-blue-500':
+      return 'bg-blue-950/60 text-blue-400 hover:bg-blue-900/70';
+    case 'text-green-500':
+      return 'bg-green-950/60 text-green-400 hover:bg-green-900/70';
+    case 'text-pink-500': // Assuming pink corresponds to rose in the example
+      return 'bg-rose-950/60 text-rose-400 hover:bg-rose-900/70';
+    default: // Default or other colors
+      return 'bg-gray-900/60 text-gray-400 hover:bg-gray-800/70';
+  }
+};
+
 export const ProjectCard = ({ project, index }: ProjectCardProps) => {
   return (
-    <div className="group relative bg-black/50 backdrop-blur-sm border border-white/10 p-5 rounded-2xl w-full flex flex-col overflow-hidden transition-all duration-300 hover:shadow-xl hover:shadow-purple-500/10 hover:border-purple-500/20 h-full">
+    <div className="group relative bg-gradient-to-br from-gray-900/80 to-gray-950/80 backdrop-blur-sm border border-gray-800 p-5 rounded-2xl w-full flex flex-col overflow-hidden transition-all duration-300 hover:shadow-xl hover:border-gray-700 h-full">
         <div className="relative w-full aspect-video overflow-hidden rounded-xl">
           <Image
             src={project.image}
             alt={project.name}
             fill
-            className="object-cover transition-transform duration-500 group-hover:scale-110"
+            className="object-cover transition-transform duration-500 group-hover:scale-105"
           />
         </div>
 
         <div className="mt-5 flex flex-col flex-grow h-full">
-          <h3 className="text-white font-bold text-xl md:text-2xl">{project.name}</h3>
-          <p className="mt-2 text-gray-300 text-sm md:text-base">{project.description}</p>
+          <h3 className="text-white font-bold text-xl md:text-2xl bg-clip-text text-transparent bg-gradient-to-r from-white to-gray-400">{project.name}</h3>
+          <p className="mt-2 text-gray-300 text-sm md:text-base leading-relaxed">{project.description}</p>
           
           {project.user && project.user !== "-" && (
             <div className="mt-4 space-y-1">
@@ -39,19 +53,22 @@ export const ProjectCard = ({ project, index }: ProjectCardProps) => {
           {project.tags.map((tag) => (
             <span
               key={`${project.name}-${tag.name}`}
-              className={cn("text-sm px-3 py-1 rounded-full bg-black/30", tag.color)}
+              className={cn(
+                "text-sm px-3 py-1 rounded-full transition-colors",
+                getTagClasses(tag.color) // Use the helper function
+              )}
             >
               #{tag.name}
             </span>
           ))}
         </div>
 
-        <div className="mt-auto pt-6 flex flex-col sm:flex-row justify-between gap-4">
+        <div className="mt-auto pt-4 flex flex-col sm:flex-row justify-between gap-3">
           <a
             href={project.demo_link}
             target="_blank"
             rel="noopener noreferrer"
-            className="flex-1 flex items-center justify-center gap-2 bg-gradient-to-r from-purple-600 to-blue-600 text-white py-2 px-4 sm:py-3 sm:px-6 rounded-md hover:opacity-90 transition-opacity text-sm sm:text-base"
+            className="flex-1 flex items-center justify-center gap-2 bg-gray-800 text-white py-2 px-4 sm:py-3 sm:px-6 rounded-md hover:bg-gray-700 transition-colors text-sm sm:text-base"
           >
             <FaExternalLinkAlt size={16} />
             <span>Demo</span>
@@ -60,7 +77,7 @@ export const ProjectCard = ({ project, index }: ProjectCardProps) => {
             href={project.source_code_link}
             target="_blank"
             rel="noopener noreferrer"
-            className="flex-1 flex items-center justify-center gap-2 bg-black/50 border border-white/20 text-white py-2 px-4 sm:py-3 sm:px-6 rounded-md hover:bg-black/70 transition-colors text-sm sm:text-base"
+            className="flex-1 flex items-center justify-center gap-2 bg-gray-800 text-white py-2 px-4 sm:py-3 sm:px-6 rounded-md hover:bg-gray-700 transition-colors text-sm sm:text-base"
           >
             <FaCode size={16} />
             <span>Code</span>
