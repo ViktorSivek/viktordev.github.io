@@ -22,12 +22,12 @@ const ContactSection = () => {
           <div className="text-white/80 flex flex-col space-y-8">
             <div>
               <h3 className="text-2xl font-bold mb-4 text-white">
-                Let's Work Together
+                Let&apos;s Work Together
               </h3>
               <p className="text-lg mb-6">
-                I'm currently available for freelance work and exciting new
+                I&apos;m currently available for freelance work and exciting new
                 opportunities. Whether you have a project in mind or just want
-                to connect, I'd love to hear from you!
+                to connect, I&apos;d love to hear from you!
               </p>
             </div>
 

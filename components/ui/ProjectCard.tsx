@@ -8,7 +8,7 @@ import { useState } from 'react' // Added useState
 
 interface ProjectCardProps {
   project: Project
-  index: number
+  index: number // Keep this as it's passed from ProjectsSection
 }
 
 // Add this helper function above the return statement
@@ -25,7 +25,9 @@ const getTagClasses = (color: string): string => {
   }
 }
 
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 export const ProjectCard = ({ project, index }: ProjectCardProps) => {
+  // Index is passed from parent for animation sequencing but not used directly in this component
   const [copied, setCopied] = useState<string | null>(null)
 
   const handleCopy = (text: string, type: 'user' | 'password') => {

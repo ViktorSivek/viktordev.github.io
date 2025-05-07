@@ -5,8 +5,6 @@ import { SectionHeader } from '@/components/ui/SectionHeader'
 import { Section } from '@/components/ui/Section'
 import { TechBall } from '@/components/ui/TechBall'
 import { technologies } from '@/data/technologies'
-import { FaDownload } from 'react-icons/fa6'
-import MagicButton from '@/components/ui/MagicButton'
 
 const AboutSection = () => {
   return (
