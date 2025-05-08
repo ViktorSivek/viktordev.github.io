@@ -7,7 +7,7 @@ import {
   useMotionValueEvent,
 } from 'framer-motion'
 import Link from 'next/link'
-import { cn } from '@/lib/utils'
+import { cn, scrollToSection } from '@/lib/utils'
 
 interface NavItem {
   name: string
@@ -72,17 +72,22 @@ export const FloatingNav = ({
         }}
       >
         {navItems.map((navItem: NavItem, idx: number) => (
-          <Link
+          <a
             key={`link=${idx}`}
             href={navItem.link}
+            onClick={(e) => {
+              e.preventDefault()
+              const sectionId = navItem.link.replace('#', '')
+              scrollToSection(sectionId)
+            }}
             className={cn(
-              'relative dark:text-neutral-50 items-center  flex space-x-1 text-neutral-600 dark:hover:text-neutral-300 hover:text-neutral-500'
+              'relative dark:text-neutral-50 items-center flex space-x-1 text-neutral-600 dark:hover:text-neutral-300 hover:text-neutral-500 cursor-pointer'
             )}
           >
             <span className="block sm:hidden">{navItem.icon}</span>
 
             <span className=" text-sm !cursor-pointer">{navItem.name}</span>
-          </Link>
+          </a>
         ))}
       </motion.div>
     </AnimatePresence>

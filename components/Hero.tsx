@@ -4,6 +4,7 @@ import MagicButton from './ui/MagicButton'
 import { Spotlight } from './ui/Spotlight'
 import { TextGenerateEffect } from './ui/TextGenerateEffect'
 import ModelViewer from './ui/ModelViewer'
+import { scrollToSection } from '@/lib/utils'
 
 const Hero = () => {
   return (
@@ -59,11 +60,13 @@ const Hero = () => {
                 title="Show my work"
                 icon={<FaLocationArrow />}
                 position="right"
+                handleClick={() => scrollToSection('projects')}
               />
               <MagicButton
                 title="Contact Me"
                 icon={<FaEnvelope />}
                 position="right"
+                handleClick={() => scrollToSection('contact')}
               />
             </div>
           </div>
@@ -71,8 +74,8 @@ const Hero = () => {
           {/* Right Side: 3D Model (Desktop only) */}
           <div className="hidden lg:flex w-1/2 justify-center items-center">
             <div className="w-[700px] h-[700px] 2k:w-[800px] 2k:h-[800px] 4k:w-[900px] 4k:h-[900px]">
-              <ModelViewer 
-                modelPath="/models/model.glb" 
+              <ModelViewer
+                modelPath="/models/model.glb"
                 autoRotate={false}
                 backgroundColor="transparent"
               />
@@ -84,8 +87,8 @@ const Hero = () => {
       {/* Mobile-only 3D Model AFTER the hero section (so it appears when you scroll) */}
       <div className="lg:hidden w-full flex justify-center py-10 landscape:mt-20">
         <div className="w-[500px] h-[500px]">
-          <ModelViewer 
-            modelPath="/models/model.glb" 
+          <ModelViewer
+            modelPath="/models/model.glb"
             autoRotate={false}
             backgroundColor="transparent"
           />
