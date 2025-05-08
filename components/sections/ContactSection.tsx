@@ -35,7 +35,7 @@ const ContactSection = () => {
 
     try {
       // Use the sendForm method to send the email
-      const result = await emailjs.sendForm(
+      await emailjs.sendForm(
         process.env.NEXT_PUBLIC_EMAIL_SERVICE_ID || '',
         process.env.NEXT_PUBLIC_EMAIL_TEMPLATE_ID || '',
         '#contact-form'

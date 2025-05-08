@@ -6,7 +6,6 @@ import {
   useScroll,
   useMotionValueEvent,
 } from 'framer-motion'
-import Link from 'next/link'
 import { cn, scrollToSection } from '@/lib/utils'
 
 interface NavItem {

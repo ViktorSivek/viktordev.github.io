@@ -40,7 +40,7 @@ export const CodeEditor = ({
 }: CodeEditorProps) => {
   const [text, setText] = useState('')
   const [showCursor, setShowCursor] = useState(cursor)
-  const [isDone, setIsDone] = useState(false)
+  // const [isDone, setIsDone] = useState(false)
   const [highlightedCode, setHighlightedCode] = useState('')
   const codeRef = useRef<HTMLPreElement>(null)
 
@@ -81,7 +81,7 @@ export const CodeEditor = ({
       } else {
         // Animation complete
         setShowCursor(false)
-        setIsDone(true)
+        // setIsDone(true)
         onDone?.()
       }
     }
@@ -94,7 +94,7 @@ export const CodeEditor = ({
     return () => {
       clearTimeout(timeout)
     }
-  }, [children, delay, onDone])
+  }, [children, delay, duration, onDone])
 
   return (
     <div
