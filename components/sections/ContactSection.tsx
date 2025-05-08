@@ -7,6 +7,7 @@ import { FaEnvelope } from 'react-icons/fa6'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faGithub, faLinkedin } from '@fortawesome/free-brands-svg-icons'
 import { motion } from 'framer-motion'
+import CodeEditorDemo from '@/components/animate-ui/components/code-editor-demo'
 
 const ContactSection = () => {
   return (
@@ -109,13 +110,9 @@ const ContactSection = () => {
             </div>
           </div>
 
-          {/* Right Side: Code Editor Placeholder */}
+          {/* Right Side: Code Editor */}
           <div className="bg-black-200 p-4 sm:p-6 rounded-3xl backdrop-blur-sm h-[480px] md:h-[550px] flex items-center justify-center border border-black-300">
-            {' '}
-            {/* Increased height */}
-            <p className="text-white/50 text-lg text-center">
-              Code Editor Placeholder
-            </p>
+            <CodeEditorDemo />
           </div>
         </div>
       </div>
