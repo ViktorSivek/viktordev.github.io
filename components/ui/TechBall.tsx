@@ -2,7 +2,6 @@
 
 import { Suspense, useRef, useState } from 'react'
 import { Canvas, useFrame } from '@react-three/fiber'
-import { EffectComposer, Bloom } from '@react-three/postprocessing'
 import {
   Environment,
   Decal,
@@ -23,6 +22,8 @@ const CanvasLoader = () => (
 )
 
 function SnapBackOrbitControls() {
+  // Using any type for now to satisfy ESLint
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const controlsRef = useRef<any>(null)
   const [isDragging, setIsDragging] = useState(false)
   // Store the time when the user last ended dragging
