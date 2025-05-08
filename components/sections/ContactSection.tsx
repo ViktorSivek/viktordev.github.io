@@ -42,24 +42,22 @@ const ContactSection = () => {
     <Section id="contact" className="py-20 md:py-32">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-screen-xl">
         <SectionHeader subtitle="Get in touch" title="Contact me" />
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-16 items-start mt-16">
-          {/* Left Side: Contact Form & Info */}
-          <div className="text-white/80 flex flex-col space-y-8">
-            <div className="bg-gradient-to-br from-gray-900/80 to-gray-950/80 backdrop-blur-sm border border-gray-800 p-6 sm:p-8 rounded-2xl shadow-lg">
-              <div className="mb-8 space-y-4">
-                <h3 className="text-2xl font-bold text-white bg-clip-text text-transparent bg-gradient-to-r from-white to-gray-400">
-                  Let&apos;s Work Together
-                </h3>
-                <p className="text-gray-300">
-                  I&apos;m currently available for freelance work and exciting
-                  new opportunities. Whether you have a project in mind or just
-                  want to connect, I&apos;d love to hear from you!
-                </p>
-              </div>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-16 items-center mt-16">
+          {/* Left Side: Contact Info & Form */}
+          <div className="flex flex-col h-full justify-center">
+            <div className="mb-8">
+              <h3 className="text-2xl font-bold text-white bg-clip-text text-transparent bg-gradient-to-r from-white to-gray-400 mb-4">
+                Let&apos;s Work Together
+              </h3>
+              <p className="text-gray-300 mb-6">
+                I&apos;m currently available for freelance work and exciting new
+                opportunities. Whether you have a project in mind or just want
+                to connect, I&apos;d love to hear from you!
+              </p>
 
               {/* Contact Information */}
-              <div className="mb-6 space-y-4">
-                <div className="space-y-3">
+              <div className="mb-6">
+                <div className="flex flex-wrap gap-6">
                   <div className="flex items-start">
                     <Mail className="mr-3 h-5 w-5 text-gray-400" />
                     <div>
@@ -86,10 +84,7 @@ const ContactSection = () => {
               </div>
 
               {/* Social Links */}
-              <div className="mb-8">
-                <p className="text-gray-300 mb-4">
-                  Or reach out via social media:
-                </p>
+              <div className="mb-6">
                 <div className="flex space-x-4">
                   <motion.a
                     href="https://github.com/ViktorSivek"
@@ -121,85 +116,85 @@ const ContactSection = () => {
                   </motion.a>
                 </div>
               </div>
-
-              {/* Contact Form */}
-              <form
-                onSubmit={handleSubmit}
-                className="space-y-6"
-                id="contact-form"
-              >
-                <div className="space-y-2">
-                  <label
-                    htmlFor="email"
-                    className="block text-sm font-medium text-white"
-                  >
-                    Your Email
-                  </label>
-                  <input
-                    id="email"
-                    type="email"
-                    value={email}
-                    onChange={(e) => setEmail(e.target.value)}
-                    placeholder="you@example.com"
-                    required
-                    className="w-full rounded-lg border border-gray-700 bg-gray-900/50 px-4 py-3 text-white placeholder-gray-500 focus:border-purple-500 focus:outline-none focus:ring-1 focus:ring-purple-500 transition-all"
-                  />
-                </div>
-
-                <div className="space-y-2">
-                  <label
-                    htmlFor="message"
-                    className="block text-sm font-medium text-white"
-                  >
-                    Message
-                  </label>
-                  <textarea
-                    id="message"
-                    value={message}
-                    onChange={(e) => setMessage(e.target.value)}
-                    placeholder="Your message..."
-                    required
-                    rows={4}
-                    className="w-full rounded-lg border border-gray-700 bg-gray-900/50 px-4 py-3 text-white placeholder-gray-500 focus:border-purple-500 focus:outline-none focus:ring-1 focus:ring-purple-500 transition-all"
-                  />
-                </div>
-
-                <div className="w-full">
-                  <MagicButton
-                    title={isSubmitting ? 'Sending...' : 'Send Message'}
-                    icon={<FaEnvelope />}
-                    position="right"
-                    otherClasses={`w-full ${isSubmitting ? 'opacity-70 pointer-events-none' : ''}`}
-                    handleClick={
-                      isSubmitting
-                        ? undefined
-                        : () => {
-                            const form = document.getElementById(
-                              'contact-form'
-                            ) as HTMLFormElement
-                            if (form) form.requestSubmit()
-                          }
-                    }
-                  />
-                </div>
-
-                {submitStatus === 'success' && (
-                  <div className="rounded-md bg-green-900/30 p-3 text-sm text-green-400">
-                    Message sent successfully!
-                  </div>
-                )}
-
-                {submitStatus === 'error' && (
-                  <div className="rounded-md bg-red-900/30 p-3 text-sm text-red-400">
-                    Failed to send message. Please try again.
-                  </div>
-                )}
-              </form>
             </div>
+
+            {/* Contact Form */}
+            <form
+              onSubmit={handleSubmit}
+              className="space-y-4"
+              id="contact-form"
+            >
+              <div className="space-y-2">
+                <label
+                  htmlFor="email"
+                  className="block text-sm font-medium text-white"
+                >
+                  Your Email
+                </label>
+                <input
+                  id="email"
+                  type="email"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                  placeholder="you@example.com"
+                  required
+                  className="w-full rounded-lg border border-gray-700 bg-gray-900/50 px-4 py-3 text-white placeholder-gray-500 focus:border-purple-500 focus:outline-none focus:ring-1 focus:ring-purple-500 transition-all"
+                />
+              </div>
+
+              <div className="space-y-2">
+                <label
+                  htmlFor="message"
+                  className="block text-sm font-medium text-white"
+                >
+                  Message
+                </label>
+                <textarea
+                  id="message"
+                  value={message}
+                  onChange={(e) => setMessage(e.target.value)}
+                  placeholder="Your message..."
+                  required
+                  rows={4}
+                  className="w-full rounded-lg border border-gray-700 bg-gray-900/50 px-4 py-3 text-white placeholder-gray-500 focus:border-purple-500 focus:outline-none focus:ring-1 focus:ring-purple-500 transition-all"
+                />
+              </div>
+
+              <div>
+                <MagicButton
+                  title={isSubmitting ? 'Sending...' : 'Send Message'}
+                  icon={<FaEnvelope />}
+                  position="right"
+                  otherClasses={`${isSubmitting ? 'opacity-70 pointer-events-none' : ''}`}
+                  handleClick={
+                    isSubmitting
+                      ? undefined
+                      : () => {
+                          const form = document.getElementById(
+                            'contact-form'
+                          ) as HTMLFormElement
+                          if (form) form.requestSubmit()
+                        }
+                  }
+                />
+              </div>
+
+              {submitStatus === 'success' && (
+                <div className="rounded-md bg-green-900/30 p-3 text-sm text-green-400">
+                  Message sent successfully!
+                </div>
+              )}
+
+              {submitStatus === 'error' && (
+                <div className="rounded-md bg-red-900/30 p-3 text-sm text-red-400">
+                  Failed to send message. Please try again.
+                </div>
+              )}
+            </form>
           </div>
 
           {/* Right Side: Code Editor */}
-          <div className="flex items-center justify-center">
+          <div className="h-full flex items-center justify-center">
             <CodeEditorDemo />
           </div>
         </div>
