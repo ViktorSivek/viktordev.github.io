@@ -111,7 +111,7 @@ const ContactSection = () => {
           </div>
 
           {/* Right Side: Code Editor */}
-          <div className="bg-black-200 p-4 sm:p-6 rounded-3xl backdrop-blur-sm h-[480px] md:h-[550px] flex items-center justify-center border border-black-300">
+          <div className="flex items-center justify-center">
             <CodeEditorDemo />
           </div>
         </div>

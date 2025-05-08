@@ -7,7 +7,7 @@ export const CodeEditorDemo = () => {
   return (
     <CodeEditor
       cursor
-      className="w-full h-full"
+      className="w-full h-[480px] md:h-[550px]"
       lang="tsx"
       title="component.tsx"
       icon={<ReactIcon />}

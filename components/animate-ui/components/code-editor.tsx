@@ -3,6 +3,7 @@
 import React, { useEffect, useRef, useState } from 'react'
 import { motion } from 'framer-motion'
 import { cn } from '@/lib/utils'
+import { CopyButton } from '@/components/animate-ui/buttons/copy'
 
 interface CodeEditorProps {
   children: string
@@ -14,6 +15,8 @@ interface CodeEditorProps {
   duration?: number
   delay?: number
   copyButton?: boolean
+  onDone?: () => void
+  onCopy?: (content: string) => void
 }
 
 export const CodeEditor = ({
@@ -26,10 +29,12 @@ export const CodeEditor = ({
   duration = 15,
   delay = 0.5,
   copyButton = false,
+  onDone,
+  onCopy,
 }: CodeEditorProps) => {
-  const [copied, setCopied] = useState(false)
   const [text, setText] = useState('')
   const [showCursor, setShowCursor] = useState(cursor)
+  const [isDone, setIsDone] = useState(false)
   const codeRef = useRef<HTMLPreElement>(null)
 
   // Animation effect to type out the code
@@ -48,9 +53,17 @@ export const CodeEditor = ({
         // Random typing speed for realistic effect
         const randomDelay = Math.random() * 50 + 10
         timeout = setTimeout(typeNextCharacter, randomDelay)
+
+        // Auto-scroll to bottom as typing occurs
+        codeRef.current?.scrollTo({
+          top: codeRef.current?.scrollHeight,
+          behavior: 'smooth',
+        })
       } else {
         // Animation complete
         setShowCursor(false)
+        setIsDone(true)
+        onDone?.()
       }
     }
 
@@ -62,48 +75,46 @@ export const CodeEditor = ({
     return () => {
       clearTimeout(timeout)
     }
-  }, [children, delay])
-
-  // Copy to clipboard function
-  const copyToClipboard = () => {
-    if (!children) return
-
-    navigator.clipboard.writeText(children.toString())
-    setCopied(true)
-
-    setTimeout(() => {
-      setCopied(false)
-    }, 2000)
-  }
+  }, [children, delay, onDone])
 
   return (
     <div
       className={cn(
-        'font-roboto-mono rounded-lg overflow-hidden border border-neutral-800 bg-black-100',
+        'font-roboto-mono rounded-xl overflow-hidden border border-neutral-800 bg-black-100 w-full flex flex-col',
         className
       )}
     >
       {/* Editor header */}
-      <div className="flex items-center justify-between px-4 py-2 bg-black-200 border-b border-neutral-800">
-        <div className="flex items-center gap-2">
-          {icon && <div className="w-4 h-4">{icon}</div>}
-          <span className="text-sm text-white/70">{title}</span>
+      <div className="flex items-center justify-between px-4 py-2 bg-black-200 border-b border-neutral-800/75 h-10">
+        <div className="flex gap-1.5">
+          <div className="w-3 h-3 rounded-full bg-red-500" />
+          <div className="w-3 h-3 rounded-full bg-yellow-500" />
+          <div className="w-3 h-3 rounded-full bg-green-500" />
         </div>
-        <div className="flex items-center gap-2">
-          <div className="flex gap-1.5">
-            <div className="w-3 h-3 rounded-full bg-red-500" />
-            <div className="w-3 h-3 rounded-full bg-yellow-500" />
-            <div className="w-3 h-3 rounded-full bg-green-500" />
+
+        {title && (
+          <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 flex items-center gap-2">
+            {icon && <div className="w-4 h-4 text-white/70">{icon}</div>}
+            <span className="text-sm text-white/70">{title}</span>
           </div>
-        </div>
+        )}
+
+        {copyButton && (
+          <CopyButton
+            content={children.toString()}
+            size="sm"
+            variant="ghost"
+            className="-me-2 bg-transparent hover:bg-black/5 dark:hover:bg-white/10"
+            onCopyComplete={onCopy}
+          />
+        )}
       </div>
 
       {/* Code content */}
-      <div className="relative">
+      <div className="relative flex-1 h-[calc(100%-2.75rem)]">
         <pre
           ref={codeRef}
-          className="p-4 text-sm text-white/90 overflow-auto"
-          style={{ fontFamily: 'Roboto Mono, monospace' }}
+          className="p-4 text-sm text-white/90 overflow-auto h-full font-roboto-mono"
         >
           <code>{text}</code>
           {showCursor && (
@@ -114,16 +125,6 @@ export const CodeEditor = ({
             />
           )}
         </pre>
-
-        {/* Copy button */}
-        {copyButton && (
-          <button
-            onClick={copyToClipboard}
-            className="absolute top-3 right-3 px-2 py-1 text-xs rounded bg-neutral-800 text-white/70 hover:bg-neutral-700 transition-colors"
-          >
-            {copied ? 'Copied!' : 'Copy'}
-          </button>
-        )}
       </div>
     </div>
   )
