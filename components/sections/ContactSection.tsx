@@ -1,6 +1,7 @@
 'use client'
 
-import { useState } from 'react'
+import { useState, useRef, useEffect } from 'react'
+import emailjs from '@emailjs/browser'
 import { SectionHeader } from '@/components/ui/SectionHeader'
 import { Section } from '@/components/ui/Section'
 import MagicButton from '@/components/ui/MagicButton'
@@ -18,18 +19,34 @@ const ContactSection = () => {
   const [submitStatus, setSubmitStatus] = useState<null | 'success' | 'error'>(
     null
   )
+  const formRef = useRef<HTMLFormElement>(null)
+
+  // Initialize EmailJS
+  useEffect(() => {
+    // Initialize EmailJS with your public key
+    emailjs.init({
+      publicKey: process.env.NEXT_PUBLIC_EMAIL_PUBLIC_KEY || '',
+    })
+  }, [])
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
     setIsSubmitting(true)
 
     try {
-      // Replace with actual form submission logic
-      await new Promise((resolve) => setTimeout(resolve, 1000))
+      // Use the sendForm method to send the email
+      const result = await emailjs.sendForm(
+        process.env.NEXT_PUBLIC_EMAIL_SERVICE_ID || '',
+        process.env.NEXT_PUBLIC_EMAIL_TEMPLATE_ID || '',
+        '#contact-form'
+      )
+
+      // Email sent successfully
       setSubmitStatus('success')
       setEmail('')
       setMessage('')
     } catch (error) {
+      console.error('Email error:', error)
       setSubmitStatus('error')
     } finally {
       setIsSubmitting(false)
@@ -120,10 +137,23 @@ const ContactSection = () => {
 
             {/* Contact Form */}
             <form
+              ref={formRef}
               onSubmit={handleSubmit}
               className="space-y-4"
               id="contact-form"
             >
+              {/* Hidden fields for EmailJS template */}
+              <input
+                type="hidden"
+                name="from_name"
+                value="Website Contact Form"
+              />
+              <input type="hidden" name="name" value="Website Visitor" />
+              <input
+                type="hidden"
+                name="title"
+                value="New Contact Form Submission"
+              />
               <div className="space-y-2">
                 <label
                   htmlFor="email"
@@ -133,6 +163,7 @@ const ContactSection = () => {
                 </label>
                 <input
                   id="email"
+                  name="email"
                   type="email"
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
@@ -151,6 +182,7 @@ const ContactSection = () => {
                 </label>
                 <textarea
                   id="message"
+                  name="message"
                   value={message}
                   onChange={(e) => setMessage(e.target.value)}
                   placeholder="Your message..."
