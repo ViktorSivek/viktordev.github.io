@@ -1,15 +1,15 @@
 'use client'
 import { FaLocationArrow, FaEnvelope } from 'react-icons/fa6'
-import MagicButton from './ui/MagicButton'
-import { Spotlight } from './ui/Spotlight'
-import { TextGenerateEffect } from './ui/TextGenerateEffect'
-import ModelViewer from './ui/ModelViewer'
+import MagicButton from '../ui/MagicButton'
+import { Spotlight } from '../ui/Spotlight'
+import { TextGenerateEffect } from '../ui/TextGenerateEffect'
+import ModelViewer from '../ui/ModelViewer'
 import { scrollToSection } from '@/lib/utils'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faGithub, faLinkedin } from '@fortawesome/free-brands-svg-icons'
 import { motion } from 'framer-motion'
 
-const Hero = () => {
+const HeroSection = () => {
   return (
     <>
       {/* Full-screen hero section */}
@@ -133,4 +133,4 @@ const Hero = () => {
   )
 }
 
-export default Hero
+export default HeroSection

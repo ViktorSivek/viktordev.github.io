@@ -1,5 +1,5 @@
 import { navItems } from '@/data'
-import Hero from '@/components/Hero'
+import HeroSection from '@/components/sections/HeroSection'
 import { FloatingNav } from '@/components/ui/FloatingNavbar'
 import AboutSection from '@/components/sections/AboutSection'
 import ProjectsSection from '@/components/sections/ProjectsSection'
@@ -11,7 +11,7 @@ export default function Home() {
     <main className="relative bg-black-100 flex justify-center items-center flex-col overflow-hidden mx-auto">
       <div className="container w-full mx-auto px-5 sm:px-10">
         <FloatingNav navItems={navItems} />
-        <Hero />
+        <HeroSection />
         <AboutSection />
         <ExperienceSection />
         <ProjectsSection />
