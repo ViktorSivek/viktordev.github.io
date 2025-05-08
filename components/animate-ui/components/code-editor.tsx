@@ -85,29 +85,29 @@ export const CodeEditor = ({
       )}
     >
       {/* Editor header */}
-      <div className="flex items-center justify-between px-4 py-2 bg-black-200 border-b border-neutral-800/75 h-10">
+      <div className="relative flex items-center justify-between px-4 py-2 bg-black-200 border-b border-neutral-800/75 h-10">
         <div className="flex gap-1.5">
           <div className="w-3 h-3 rounded-full bg-red-500" />
           <div className="w-3 h-3 rounded-full bg-yellow-500" />
           <div className="w-3 h-3 rounded-full bg-green-500" />
         </div>
 
-        {title && (
-          <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 flex items-center gap-2">
-            {icon && <div className="w-4 h-4 text-white/70">{icon}</div>}
-            <span className="text-sm text-white/70">{title}</span>
-          </div>
-        )}
+        <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 flex items-center gap-1.5">
+          {icon}
+          <span className="text-xs text-white/70">{title}</span>
+        </div>
 
-        {copyButton && (
-          <CopyButton
-            content={children.toString()}
-            size="sm"
-            variant="ghost"
-            className="-me-2 bg-transparent hover:bg-black/5 dark:hover:bg-white/10"
-            onCopyComplete={onCopy}
-          />
-        )}
+        <div>
+          {copyButton && (
+            <CopyButton
+              content={children.toString()}
+              size="sm"
+              variant="ghost"
+              className="-me-2 bg-transparent hover:bg-black/5 dark:hover:bg-white/10"
+              onCopyComplete={onCopy}
+            />
+          )}
+        </div>
       </div>
 
       {/* Code content */}

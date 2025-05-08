@@ -10,7 +10,7 @@ export const CodeEditorDemo = () => {
       className="w-full h-[480px] md:h-[550px]"
       lang="tsx"
       title="component.tsx"
-      icon={<ReactIcon />}
+      icon={<ReactIcon className="text-white/70" />}
       duration={15}
       delay={0.5}
       copyButton
