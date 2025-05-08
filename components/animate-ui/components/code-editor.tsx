@@ -4,6 +4,12 @@ import React, { useEffect, useRef, useState } from 'react'
 import { motion } from 'framer-motion'
 import { cn } from '@/lib/utils'
 import { CopyButton } from '@/components/animate-ui/buttons/copy'
+import Prism from 'prismjs'
+
+// Import TypeScript language support
+import 'prismjs/components/prism-typescript'
+import 'prismjs/components/prism-jsx'
+import 'prismjs/components/prism-tsx'
 
 interface CodeEditorProps {
   children: string
@@ -35,7 +41,20 @@ export const CodeEditor = ({
   const [text, setText] = useState('')
   const [showCursor, setShowCursor] = useState(cursor)
   const [isDone, setIsDone] = useState(false)
+  const [highlightedCode, setHighlightedCode] = useState('')
   const codeRef = useRef<HTMLPreElement>(null)
+
+  // Highlight code when text changes
+  useEffect(() => {
+    if (text) {
+      const highlighted = Prism.highlight(
+        text,
+        Prism.languages[lang] || Prism.languages.typescript,
+        lang
+      )
+      setHighlightedCode(highlighted)
+    }
+  }, [text, lang])
 
   // Animation effect to type out the code
   useEffect(() => {
@@ -80,12 +99,12 @@ export const CodeEditor = ({
   return (
     <div
       className={cn(
-        'font-roboto-mono rounded-xl overflow-hidden border border-neutral-800 bg-black-100 w-full flex flex-col',
+        'font-roboto-mono rounded-xl overflow-hidden border border-gray-800 hover:border-gray-700 transition-all duration-300 bg-gradient-to-br from-gray-900/90 to-gray-950/90 backdrop-blur-sm w-full flex flex-col shadow-lg',
         className
       )}
     >
       {/* Editor header */}
-      <div className="relative flex items-center justify-between px-4 py-2 bg-black-200 border-b border-neutral-800/75 h-10">
+      <div className="relative flex items-center justify-between px-4 py-2 bg-gradient-to-r from-gray-800/90 to-gray-900/90 border-b border-gray-800/75 h-10">
         <div className="flex gap-1.5">
           <div className="w-3 h-3 rounded-full bg-red-500" />
           <div className="w-3 h-3 rounded-full bg-yellow-500" />
@@ -103,7 +122,7 @@ export const CodeEditor = ({
               content={children.toString()}
               size="sm"
               variant="ghost"
-              className="-me-2 bg-transparent hover:bg-black/5 dark:hover:bg-white/10"
+              className="-me-2 bg-transparent hover:bg-gray-800/70"
               onCopyComplete={onCopy}
             />
           )}
@@ -114,9 +133,12 @@ export const CodeEditor = ({
       <div className="relative flex-1 h-[calc(100%-2.75rem)]">
         <pre
           ref={codeRef}
-          className="p-4 text-sm text-white/90 overflow-auto h-full font-roboto-mono"
+          className="p-3 px-4 text-xs md:text-sm text-white/90 overflow-auto h-full font-roboto-mono bg-gradient-to-br from-gray-900/80 to-gray-950/80"
         >
-          <code>{text}</code>
+          <code
+            className={`language-${lang} whitespace-pre-wrap`}
+            dangerouslySetInnerHTML={{ __html: highlightedCode }}
+          />
           {showCursor && (
             <motion.span
               className="inline-block w-0.5 h-4 bg-white/70 ml-0.5"

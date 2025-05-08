@@ -43,9 +43,8 @@ export const CopyButton = ({
         size === 'sm' && 'h-8 px-2 text-xs',
         size === 'md' && 'h-10 px-3 text-sm',
         size === 'lg' && 'h-12 px-4 text-base',
-        variant === 'default' &&
-          'bg-neutral-800 text-white/70 hover:bg-neutral-700',
-        variant === 'ghost' && 'text-white/70 hover:bg-neutral-800',
+        variant === 'default' && 'bg-gray-800 text-white/70 hover:bg-gray-700',
+        variant === 'ghost' && 'text-white/70 hover:bg-gray-800/70',
         className
       )}
       {...props}
