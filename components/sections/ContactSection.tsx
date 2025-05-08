@@ -8,7 +8,7 @@ import { FaEnvelope } from 'react-icons/fa6'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faGithub, faLinkedin } from '@fortawesome/free-brands-svg-icons'
 import { motion } from 'framer-motion'
-import CodeEditorDemo from '@/components/animate-ui/components/code-editor-demo'
+import { CodeEditorDemo } from '@/components/animate-ui/components/code-editor-demo'
 import { Mail, MapPin } from 'lucide-react'
 
 const ContactSection = () => {
@@ -42,10 +42,10 @@ const ContactSection = () => {
     <Section id="contact" className="py-20 md:py-32">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-screen-xl">
         <SectionHeader subtitle="Get in touch" title="Contact me" />
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-16 items-center mt-16">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-16 items-center mt-12 md:mt-16">
           {/* Left Side: Contact Info & Form */}
-          <div className="flex flex-col h-full justify-center">
-            <div className="mb-8">
+          <div className="flex flex-col h-full justify-center md:text-left text-center">
+            <div className="mb-2">
               <h3 className="text-2xl font-bold text-white bg-clip-text text-transparent bg-gradient-to-r from-white to-gray-400 mb-4">
                 Let&apos;s Work Together
               </h3>
@@ -57,22 +57,22 @@ const ContactSection = () => {
 
               {/* Contact Information */}
               <div className="mb-6">
-                <div className="flex flex-wrap gap-6">
-                  <div className="flex items-start">
-                    <Mail className="mr-3 h-5 w-5 text-gray-400" />
+                <div className="flex flex-wrap gap-6 md:justify-start justify-center">
+                  <div className="flex items-center">
+                    <Mail className="mr-2 h-5 w-5 text-gray-400" />
                     <div>
                       <p className="text-sm font-medium text-white">Email</p>
                       <a
                         href="mailto:viktor.sivek@gmail.com"
                         className="text-sm text-gray-400 hover:text-purple-400 transition-colors"
                       >
-                        viktor.sivek@gmail.com
+                        viktorsivek@gmail.com
                       </a>
                     </div>
                   </div>
 
-                  <div className="flex items-start">
-                    <MapPin className="mr-3 h-5 w-5 text-gray-400" />
+                  <div className="flex items-center">
+                    <MapPin className="mr-2 h-5 w-5 text-gray-400" />
                     <div>
                       <p className="text-sm font-medium text-white">Location</p>
                       <p className="text-sm text-gray-400">
@@ -84,20 +84,20 @@ const ContactSection = () => {
               </div>
 
               {/* Social Links */}
-              <div className="mb-6">
-                <div className="flex space-x-4">
+              <div className="mb-4">
+                <div className="flex space-x-5 md:justify-start justify-center">
                   <motion.a
                     href="https://github.com/ViktorSivek"
                     target="_blank"
                     rel="noopener noreferrer"
                     whileHover={{ scale: 1.1 }}
                     whileTap={{ scale: 0.9 }}
-                    className="bg-gray-800 hover:bg-gray-700 transition-colors rounded-full w-12 h-12 flex items-center justify-center z-20"
+                    className="bg-gray-800 hover:bg-gray-700 transition-colors rounded-full w-14 h-14 flex items-center justify-center z-20"
                     aria-label="GitHub Profile"
                   >
                     <FontAwesomeIcon
                       icon={faGithub}
-                      className="text-white text-2xl"
+                      className="text-white text-3xl"
                     />
                   </motion.a>
                   <motion.a
@@ -106,12 +106,12 @@ const ContactSection = () => {
                     rel="noopener noreferrer"
                     whileHover={{ scale: 1.1 }}
                     whileTap={{ scale: 0.9 }}
-                    className="bg-blue-600 hover:bg-blue-500 transition-colors rounded-full w-12 h-12 flex items-center justify-center z-20"
+                    className="bg-blue-600 hover:bg-blue-500 transition-colors rounded-full w-14 h-14 flex items-center justify-center z-20"
                     aria-label="LinkedIn Profile"
                   >
                     <FontAwesomeIcon
                       icon={faLinkedin}
-                      className="text-white text-2xl"
+                      className="text-white text-3xl"
                     />
                   </motion.a>
                 </div>
@@ -127,7 +127,7 @@ const ContactSection = () => {
               <div className="space-y-2">
                 <label
                   htmlFor="email"
-                  className="block text-sm font-medium text-white"
+                  className="block text-sm font-medium text-white md:text-left text-left"
                 >
                   Your Email
                 </label>
@@ -145,7 +145,7 @@ const ContactSection = () => {
               <div className="space-y-2">
                 <label
                   htmlFor="message"
-                  className="block text-sm font-medium text-white"
+                  className="block text-sm font-medium text-white md:text-left text-left"
                 >
                   Message
                 </label>
@@ -160,7 +160,7 @@ const ContactSection = () => {
                 />
               </div>
 
-              <div>
+              <div className="md:text-left text-center -mt-8">
                 <MagicButton
                   title={isSubmitting ? 'Sending...' : 'Send Message'}
                   icon={<FaEnvelope />}
