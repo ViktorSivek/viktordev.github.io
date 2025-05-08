@@ -134,10 +134,12 @@ export const CodeEditor = ({
         <pre
           ref={codeRef}
           className="p-3 px-4 text-xs md:text-sm text-white/90 overflow-auto h-full font-roboto-mono bg-gradient-to-br from-gray-900/80 to-gray-950/80"
+          suppressHydrationWarning
         >
           <code
-            className={`language-${lang} whitespace-pre-wrap`}
+            className={`whitespace-pre-wrap language-${lang}`}
             dangerouslySetInnerHTML={{ __html: highlightedCode }}
+            suppressHydrationWarning
           />
           {showCursor && (
             <motion.span
