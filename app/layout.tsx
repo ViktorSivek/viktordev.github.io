@@ -14,8 +14,11 @@ const robotoMono = Roboto_Mono({
 })
 
 export const metadata: Metadata = {
-  title: 'ViktorDev Portfolio',
-  description: 'ViktorDev Portfolio',
+  title: 'Viktor | Portfolio',
+  description: 'Viktor | Portfolio',
+  icons: {
+    icon: '/viktor_favicon.svg',
+  },
 }
 
 export default function RootLayout({
@@ -25,7 +28,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className={`${poppins.className} ${robotoMono.className}`} suppressHydrationWarning>
+      <body
+        className={`${poppins.className} ${robotoMono.className}`}
+        suppressHydrationWarning
+      >
         <ThemeProvider
           attribute="class"
           defaultTheme="dark"
