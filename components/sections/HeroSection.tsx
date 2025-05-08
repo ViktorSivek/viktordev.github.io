@@ -1,11 +1,15 @@
 'use client'
 import { FaLocationArrow, FaEnvelope } from 'react-icons/fa6'
-import MagicButton from './ui/MagicButton'
-import { Spotlight } from './ui/Spotlight'
-import { TextGenerateEffect } from './ui/TextGenerateEffect'
-import ModelViewer from './ui/ModelViewer'
+import MagicButton from '../ui/MagicButton'
+import { Spotlight } from '../ui/Spotlight'
+import { TextGenerateEffect } from '../ui/TextGenerateEffect'
+import ModelViewer from '../ui/ModelViewer'
+import { scrollToSection } from '@/lib/utils'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faGithub, faLinkedin } from '@fortawesome/free-brands-svg-icons'
+import { motion } from 'framer-motion'
 
-const Hero = () => {
+const HeroSection = () => {
   return (
     <>
       {/* Full-screen hero section */}
@@ -50,20 +54,54 @@ const Hero = () => {
 
             <TextGenerateEffect
               words="I'm the one, who gets it done"
-              className="font-roboto-mono text-[24px] md:text-2xl lg:text-3xl 2k:text-4xl 4k:text-5xl font-regular mt-4 mb-12 md:mb-24 lg:mb-0 landscape:mb-0"
+              className="font-roboto-mono text-[24px] md:text-2xl lg:text-3xl 2k:text-4xl 4k:text-5xl font-regular mt-4 mb-6 md:mb-8 lg:mb-6"
             />
 
+            {/* Social Links */}
+            <div className="flex justify-center lg:justify-start space-x-5">
+              <motion.a
+                href="https://github.com/ViktorSivek"
+                target="_blank"
+                rel="noopener noreferrer"
+                whileHover={{ scale: 1.1 }}
+                whileTap={{ scale: 0.9 }}
+                className="bg-gray-800 hover:bg-gray-700 transition-colors rounded-full w-12 h-12 md:w-14 md:h-14 flex items-center justify-center z-20"
+                aria-label="GitHub Profile"
+              >
+                <FontAwesomeIcon
+                  icon={faGithub}
+                  className="text-white text-2xl md:text-3xl"
+                />
+              </motion.a>
+              <motion.a
+                href="https://www.linkedin.com/in/viktor-sivek/"
+                target="_blank"
+                rel="noopener noreferrer"
+                whileHover={{ scale: 1.1 }}
+                whileTap={{ scale: 0.9 }}
+                className="bg-blue-600 hover:bg-blue-500 transition-colors rounded-full w-12 h-12 md:w-14 md:h-14 flex items-center justify-center z-20"
+                aria-label="LinkedIn Profile"
+              >
+                <FontAwesomeIcon
+                  icon={faLinkedin}
+                  className="text-white text-2xl md:text-3xl"
+                />
+              </motion.a>
+            </div>
+
             {/* Buttons */}
-            <div className="flex flex-col w-full lg:flex-row gap-4 max-w-xl pd lg:w-auto sm:mt-24 md:mt-24 lg:mt-0 landscape:mt-0 landscape:mb-8">
+            <div className="flex flex-col w-full lg:flex-row lg:gap-4 max-w-xl pd lg:w-auto landscape:mb-8">
               <MagicButton
                 title="Show my work"
                 icon={<FaLocationArrow />}
                 position="right"
+                handleClick={() => scrollToSection('projects')}
               />
               <MagicButton
                 title="Contact Me"
                 icon={<FaEnvelope />}
                 position="right"
+                handleClick={() => scrollToSection('contact')}
               />
             </div>
           </div>
@@ -71,8 +109,8 @@ const Hero = () => {
           {/* Right Side: 3D Model (Desktop only) */}
           <div className="hidden lg:flex w-1/2 justify-center items-center">
             <div className="w-[700px] h-[700px] 2k:w-[800px] 2k:h-[800px] 4k:w-[900px] 4k:h-[900px]">
-              <ModelViewer 
-                modelPath="/models/model.glb" 
+              <ModelViewer
+                modelPath="/models/model.glb"
                 autoRotate={false}
                 backgroundColor="transparent"
               />
@@ -84,8 +122,8 @@ const Hero = () => {
       {/* Mobile-only 3D Model AFTER the hero section (so it appears when you scroll) */}
       <div className="lg:hidden w-full flex justify-center py-10 landscape:mt-20">
         <div className="w-[500px] h-[500px]">
-          <ModelViewer 
-            modelPath="/models/model.glb" 
+          <ModelViewer
+            modelPath="/models/model.glb"
             autoRotate={false}
             backgroundColor="transparent"
           />
@@ -95,4 +133,4 @@ const Hero = () => {
   )
 }
 
-export default Hero
+export default HeroSection
