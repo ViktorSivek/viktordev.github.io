@@ -4,7 +4,7 @@ Welcome to my personal portfolio website! This modern, responsive website showca
 
 ## 🌐 Live Demo
 
-Visit my portfolio at [viktordev.github.io](https://viktordev.github.io)
+Visit my portfolio at [viktorsivek.github.io](https://viktorsivek.github.io)
 
 ## ✨ Features
 
@@ -37,8 +37,8 @@ Visit my portfolio at [viktordev.github.io](https://viktordev.github.io)
 1. Clone the repository:
 
    ```bash
-   git clone https://github.com/viktordev/viktordev.github.io.git
-   cd viktordev.github.io
+   git clone https://github.com/viktorsivek/viktorsivek.github.io.git
+   cd viktorsivek.github.io
    ```
 
 2. Install dependencies:
