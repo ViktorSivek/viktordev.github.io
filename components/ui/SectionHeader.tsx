@@ -20,7 +20,7 @@ export const SectionHeader = ({
       whileInView={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.7, delay: 0.1 }}
       viewport={{ once: true }}
-      className={cn('mb-16 text-center', className)}
+      className={cn('mb-14 sm:mb-16 text-center', className)}
     >
       <p className="font-roboto-mono text-white uppercase tracking-wider mb-3 text-base md:text-lg">
         {subtitle}
