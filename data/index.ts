@@ -127,7 +127,7 @@ export const timelineExperiences: TimelineExperience[] = [
     points: [
       'Built a full-stack web app from concept to deployment.',
       'Integrated Microsoft Sentinel and Tanium for cybersecurity insights.',
-      'Optimized app performance and reduced load times by 40%.',
+      'Developed core modules for security event threat detection.',
       'Used Django, Python, React, Docker, and MS Azure.',
     ],
   },
