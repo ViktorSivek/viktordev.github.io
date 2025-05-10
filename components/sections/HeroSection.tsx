@@ -44,17 +44,17 @@ const HeroSection = () => {
           <div className="w-full lg:w-1/2 flex flex-col items-center lg:items-start justify-center text-center lg:text-left mt-12 md:mt-24 lg:mt-0">
             {/* Main Heading */}
             <h1 className="text-left landscape:mt-0">
-              <span className="font-roboto-mono font-bold text-[22px] md:text-[35px] md:text-5xl lg:text-6xl 2k:text-7xl 4k:text-8xl font-regular mt-4 ">
+              <span className="font-roboto-mono font-bold text-[22px] sm:text-[22px] md:text-[35px] md:text-5xl lg:text-6xl 2k:text-7xl 4k:text-8xl font-regular mt-4 ">
                 Hi, I am
               </span>
-              <span className="font-roboto-mono font-bold text-purple text-[40px] sm:text-[50] md:text-[64px] lg:text-[90px] 2k:text-[100px] 4k:text-[120px] ml-6 md:ml-8 font-regular">
+              <span className="font-roboto-mono font-bold text-purple text-[35px] sm:text-[40px] md:text-[64px] lg:text-[90px] 2k:text-[100px] 4k:text-[120px] ml-6 md:ml-8 font-regular">
                 Viktor
               </span>
             </h1>
 
             <TextGenerateEffect
               words="I'm the one, who gets it done"
-              className="font-roboto-mono text-[24px] md:text-2xl lg:text-3xl 2k:text-4xl 4k:text-5xl font-regular mt-4 mb-6 md:mb-8 lg:mb-6"
+              className="font-roboto-mono text-[20px] sm:text-[24px] md:text-2xl lg:text-3xl 2k:text-4xl 4k:text-5xl font-regular mt-4 mb-6 md:mb-8 lg:mb-6"
             />
 
             {/* Social Links */}
@@ -121,7 +121,7 @@ const HeroSection = () => {
 
       {/* Mobile-only 3D Model AFTER the hero section (so it appears when you scroll) */}
       <div className="lg:hidden w-full flex justify-center py-10 landscape:mt-20">
-        <div className="w-[500px] h-[500px]">
+        <div className="w-[350px] h-[350px]">
           <ModelViewer
             modelPath="/models/model.glb"
             autoRotate={false}
