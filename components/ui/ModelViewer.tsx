@@ -11,11 +11,11 @@ interface ModelViewerProps {
   backgroundColor?: string
 }
 
-const ModelViewer: React.FC<ModelViewerProps> = ({ 
-  modelPath, 
+const ModelViewer: React.FC<ModelViewerProps> = ({
+  modelPath,
   className,
   autoRotate = true,
-  backgroundColor = '#ffffff'
+  backgroundColor = '#ffffff',
 }) => {
   const containerRef = useRef<HTMLDivElement>(null)
   const [loading, setLoading] = useState(true)
@@ -36,7 +36,10 @@ const ModelViewer: React.FC<ModelViewerProps> = ({
     // Setup scene
     const scene = new THREE.Scene()
     // Make background transparent if backgroundColor is 'transparent'
-    scene.background = backgroundColor === 'transparent' ? null : new THREE.Color(backgroundColor)
+    scene.background =
+      backgroundColor === 'transparent'
+        ? null
+        : new THREE.Color(backgroundColor)
 
     // Setup camera
     const camera = new THREE.PerspectiveCamera(
@@ -48,9 +51,9 @@ const ModelViewer: React.FC<ModelViewerProps> = ({
     camera.position.z = 5
 
     // Setup renderer
-    const renderer = new THREE.WebGLRenderer({ 
+    const renderer = new THREE.WebGLRenderer({
       antialias: true,
-      alpha: backgroundColor === 'transparent' // Enable alpha channel for transparency
+      alpha: backgroundColor === 'transparent', // Enable alpha channel for transparency
     })
     renderer.setSize(
       currentContainer.clientWidth,
@@ -92,20 +95,21 @@ const ModelViewer: React.FC<ModelViewerProps> = ({
         // Scale the model to fit
         const size = box.getSize(new THREE.Vector3())
         const maxDim = Math.max(size.x, size.y, size.z)
-        const scale = 4 / maxDim  // Increased scale factor from 3 to 4
+        const scale = 4 / maxDim // Adjusted scale factor to make model smaller
         gltf.scene.scale.set(scale, scale, scale)
 
         // Setup animations
         if (gltf.animations && gltf.animations.length) {
           mixer = new THREE.AnimationMixer(gltf.scene)
-          
+
           gltf.animations.forEach((clip) => {
-            if (mixer) {  // Add null check here
+            if (mixer) {
+              // Add null check here
               const action = mixer.clipAction(clip)
               animationActions.push(action)
             }
           })
-          
+
           // Play the first animation by default
           if (animationActions.length > 0) {
             activeAction = animationActions[0]
@@ -129,21 +133,21 @@ const ModelViewer: React.FC<ModelViewerProps> = ({
     )
 
     // Animation loop
-    let animationId: number;
-    
+    let animationId: number
+
     const animate = () => {
       animationId = requestAnimationFrame(animate)
-      
+
       // Update animations
       if (mixer) {
         const delta = clock.getDelta()
         mixer.update(delta)
       }
-      
+
       controls.update()
       renderer.render(scene, camera)
     }
-    
+
     animate() // Start the animation loop
 
     // Handle window resize
@@ -166,7 +170,7 @@ const ModelViewer: React.FC<ModelViewerProps> = ({
       if (currentContainer && currentContainer.contains(renderer.domElement)) {
         currentContainer.removeChild(renderer.domElement)
       }
-      
+
       // Dispose resources
       renderer.dispose()
       if (mixer) {
@@ -180,12 +184,14 @@ const ModelViewer: React.FC<ModelViewerProps> = ({
       {loading && (
         <div className="absolute inset-0 flex flex-col items-center justify-center bg-transparent">
           <div className="w-full max-w-md bg-transparent rounded-full h-2.5 dark:bg-gray-800/30 overflow-hidden">
-            <div 
-              className="bg-purple h-2.5 rounded-full" 
+            <div
+              className="bg-purple h-2.5 rounded-full"
               style={{ width: `${progress}%` }}
             ></div>
           </div>
-          <p className="mt-2 text-sm text-white dark:text-gray-300">Loading model... {Math.round(progress)}%</p>
+          <p className="mt-2 text-sm text-white dark:text-gray-300">
+            Loading model... {Math.round(progress)}%
+          </p>
         </div>
       )}
       {error && (
@@ -193,10 +199,7 @@ const ModelViewer: React.FC<ModelViewerProps> = ({
           <p className="text-red-400">{error}</p>
         </div>
       )}
-      <div
-        ref={containerRef}
-        className="w-full h-full overflow-hidden"
-      />
+      <div ref={containerRef} className="w-full h-full overflow-hidden" />
     </div>
   )
 }

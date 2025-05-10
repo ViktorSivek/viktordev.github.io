@@ -121,7 +121,7 @@ const HeroSection = () => {
 
       {/* Mobile-only 3D Model AFTER the hero section (so it appears when you scroll) */}
       <div className="lg:hidden w-full flex justify-center py-10 landscape:mt-20">
-        <div className="w-[500px] h-[500px]">
+        <div className="w-[350px] h-[350px]">
           <ModelViewer
             modelPath="/models/model.glb"
             autoRotate={false}
