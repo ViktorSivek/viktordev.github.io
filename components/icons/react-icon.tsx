@@ -11,7 +11,10 @@ const ReactIcon = ({ className }: { className?: string }) => {
       height="16"
       className={className}
       fill="none"
+      role="img"
+      aria-label="React logo"
     >
+      <title>React logo</title>
       <circle cx="0" cy="0" r="2.05" fill="currentColor" />
       <g stroke="currentColor" strokeWidth="1" fill="none">
         <ellipse rx="11" ry="4.2" />
